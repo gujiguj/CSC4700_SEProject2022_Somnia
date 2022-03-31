@@ -31,3 +31,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Hello World!"
 align = 1
 valign = 1
+__meta__ = {
+"_editor_description_": "Roboto font by Google Android Design https://www.dafont.com/roboto.font"
+}
