@@ -27,10 +27,10 @@ func _ready():
 	show_dialogbox()
 	
 	# queue up a bunch of dialog
-	queue_dialog("What do you want to do?")
-	queue_dialog("You decide to study for math.")
-	queue_dialog("You studied for an hour.")
-	queue_dialog("What do you want to do next?")
+	queue_dialog("Example text 1.")
+	queue_dialog("Example text 2.")
+	queue_dialog("Example text 3.")
+	queue_dialog("Example text 4.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,7 +43,7 @@ func _process(delta):
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept"):
 				dialog.percent_visible = 1.0
-				$Tween.stop_all()
+				$Tween.remove_all()
 				end_symbol.text = END_TEXT
 				change_state(State.FINISHED)
 		# if done reading, enter key can be pressed to bring the box back to the ready state
@@ -83,7 +83,7 @@ func display_dialog():
 	$Tween.start()
 
 # when text is done animating, change state to finished
-func _on_Tween_tween_all_completed():
+func _on_Tween_tween_completed(object, key):
 	end_symbol.text = END_TEXT
 	change_state(State.FINISHED)
 	
@@ -99,3 +99,5 @@ func change_state(next_state):
 		State.FINISHED:
 			print("Changing state to: State.FINISHED")
 			
+
+
