@@ -33,7 +33,7 @@ func _ready():
 	queue_dialog("Example text 4.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	match current_state:
 		# display dialog if the dialog queue is not empty
 		State.READY:
@@ -83,7 +83,7 @@ func display_dialog():
 	$Tween.start()
 
 # when text is done animating, change state to finished
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed():
 	end_symbol.text = END_TEXT
 	change_state(State.FINISHED)
 	
