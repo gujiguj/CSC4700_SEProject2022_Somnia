@@ -103,3 +103,13 @@ margin_right = 202.0
 margin_bottom = -5.0
 text = "Happiness"
 valign = 2
+
+[node name="DeathMessage" type="Label" parent="."]
+visible = false
+margin_left = 247.0
+margin_top = 55.0
+margin_right = 331.0
+margin_bottom = 78.0
+text = "oof u are ded"
+
+[connection signal="energy_zero" from="." to="." method="_on_StatsBox_energy_zero"]

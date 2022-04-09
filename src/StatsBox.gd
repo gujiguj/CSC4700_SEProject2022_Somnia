@@ -10,31 +10,19 @@ signal energy_zero
 # var a = 2
 # var b = "text"
 
-func increaseStat(var stat, var percent):
-	match stat:
-		"energy":
-			energy.value += percent
-		"stress":
-			stress.value += percent
-		"happiness":
-			happiness.value += percent
-
-func decreaseStat(var stat, var percent):
-	match stat:
-		"energy":
-			energy.value -= percent
-			if energy.value == 0:
-				emit_signal("energy_zero")
-		"stress":
-			stress.value -= percent
-		"happiness":
-			happiness.value -= percent
-
 func increaseEnergy(var percent):
 	energy.value += percent
+	
+func increaseStress(var percent):
+	stress.value += percent
+	
+func increaseHappiness(var percent):
+	happiness.value += percent
 
 func decreaseEnergy(var percent):
 	energy.value -= percent
+	if energy.value == 0:
+		emit_signal("energy_zero")
 
 func decreaseStress(var percent):
 	stress.value -= percent
@@ -48,8 +36,13 @@ func _ready():
 	energy.value = 100
 	stress.value = 0
 	happiness.value = 100
+	$DeathMessage.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		decreaseStat("energy", 5)
+		decreaseEnergy(5)
+
+
+func _on_StatsBox_energy_zero():
+	$DeathMessage.show()
