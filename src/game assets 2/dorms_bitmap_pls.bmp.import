@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/dorms_bitmap_pls.bmp-b74993c146f66172ce07339e28a87d03.res"
+
+[deps]
+
+source_file="res://game assets 2/dorms_bitmap_pls.bmp"
+dest_files=[ "res://.import/dorms_bitmap_pls.bmp-b74993c146f66172ce07339e28a87d03.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5
