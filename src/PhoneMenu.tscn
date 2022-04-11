@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://images/placeholder.png" type="Texture" id=1]
+[ext_resource path="res://Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://images/to-do-list.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.231373, 0.333333, 0.615686, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.988235, 1, 0.290196, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.831373, 0.980392, 0.988235, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 172.0
+margin_bottom = 283.0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+margin_right = 172.0
+margin_bottom = 283.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+margin_right = 172.0
+margin_bottom = 283.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 40
+
+[node name="ItemList" type="ItemList" parent="MarginContainer/MarginContainer"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 157.0
+margin_bottom = 243.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/selected_focus = SubResource( 4 )
+custom_styles/bg = SubResource( 2 )
+items = [ "Map", ExtResource( 1 ), false, "Tasks", ExtResource( 3 ), false ]
+max_columns = 2
+same_column_width = true
+fixed_column_width = 60
+icon_mode = 0
+fixed_icon_size = Vector2( 60, 60 )
