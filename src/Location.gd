@@ -4,11 +4,11 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var choices = $LocationBg/MarginContainer/ChoicesContainer
-onready var choice1 = $LocationBg/MarginContainer/ChoicesContainer/Choice1
-onready var choice2 = $LocationBg/MarginContainer/ChoicesContainer/Choice2
-onready var choice3 = $LocationBg/MarginContainer/ChoicesContainer/Choice3
-onready var choice_leave = $LocationBg/MarginContainer/ChoicesContainer/Leave
+onready var choices = $LocationBg/ChoicesContainer
+onready var choice1 = $LocationBg/ChoicesContainer/VBoxContainer/Choice1
+onready var choice2 = $LocationBg/ChoicesContainer/VBoxContainer/Choice2
+onready var choice3 = $LocationBg/ChoicesContainer/VBoxContainer/Choice3
+onready var choice_leave = $LocationBg/ChoicesContainer/VBoxContainer/Leave
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,3 +30,6 @@ func _on_Choice3_pressed():
 	
 func _on_Leave_pressed():
 	$LocationBg/ConfirmationDialog.popup()
+
+func _on_ConfirmationDialog_confirmed():
+	choices.hide()
