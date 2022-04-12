@@ -9,7 +9,7 @@ border_width_left = 8
 border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
-border_color = Color( 0.145098, 0.282353, 0.164706, 1 )
+border_color = Color( 0.168627, 0.239216, 0.447059, 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 47
