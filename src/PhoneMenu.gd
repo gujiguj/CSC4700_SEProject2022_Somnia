@@ -11,9 +11,9 @@ onready var task_list = $Tasks/MarginContainer/TasksList
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Tasks.hide()
-	addTask(2, "Go to class")
-	addTask(1, "Do homework")
-	addTask(6, "Email professor")
+	#addTask(2, "Go to class")
+	#addTask(1, "Do homework")
+	#addTask(6, "Email professor")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(_delta):
