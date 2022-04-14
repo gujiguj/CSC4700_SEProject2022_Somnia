@@ -7,30 +7,56 @@ extends CanvasLayer
 onready var phone = $PhoneContainer/PhoneHomeContainer/PhoneHomeMenu
 onready var task_list = $Tasks/MarginContainer/TasksList
 
+signal task_completed
+signal task_missed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Tasks.hide()
-	#addTask(2, "Go to class")
-	#addTask(1, "Do homework")
-	#addTask(6, "Email professor")
+	# addTask(2, "Go to class")
+	# addTask(2, "Do homework")
+	# addTask(2, "Email professor")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(_delta):
-#	pass
+# func _process(_delta):
+	#pass
+	# if Input.is_action_just_pressed("ui_accept"):
+	# 	subtractTime(0.25)
 
+# opens tasks menu if the icon on the phone menu is selected
 func _on_PhoneHomeMenu_item_selected(index):
 	match(index):
 		1:
 			$Tasks.show()
 
+# closes tasks menu if the close button is pressed
 func _on_CloseTasksButton_pressed():
 	$Tasks.hide()
-	
+
+# input: float, string
+# adds a task description and how much time it has left in hours	
 func addTask(time_left, task):
 	task_list.add_item(str(time_left))
 	task_list.add_item(task)
+
+# input: string
+# searches for the corresponding task by the string and removes it	
+# emits a signal to be used by the stats system
+# THIS MUST BE CALLED BEFORE subtractTime!!!!
+func completeTask(task):
+	var remove_queue = []
+	for index in task_list.get_item_count():
+		if task_list.get_item_text(index) == task:
+			remove_queue.push_front(index-1)
+			remove_queue.push_front(index)
+			break
+	for index in remove_queue:
+		task_list.remove_item(index)
+	emit_signal("task_completed")
 	
+# input: float
+# subtracts time from each of the tasks
+# emits a signal if any task runs out of time to be used by stats system
 func subtractTime(time):
 	var remove_queue = []
 	for index in task_list.get_item_count():
@@ -46,6 +72,7 @@ func subtractTime(time):
 				remove_queue.push_front(index+1)
 	for index in remove_queue:
 		task_list.remove_item(index)
+		emit_signal("task_missed") # to be used by stats system
 		
 func formatTime(time):
 	# converts a float value of hours to a format of H:M
