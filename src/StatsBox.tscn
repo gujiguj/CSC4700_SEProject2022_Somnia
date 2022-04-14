@@ -45,7 +45,9 @@ custom_styles/panel = SubResource( 3 )
 margin_right = 237.0
 margin_bottom = 266.0
 custom_constants/margin_right = 18
+custom_constants/margin_top = 0
 custom_constants/margin_left = 18
+custom_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StatsBoxContainer/MarginContainer"]
 margin_left = 18.0
