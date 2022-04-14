@@ -9,32 +9,39 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.0901961, 0.270588, 0.709804, 1 )
+border_color = Color( 0.168627, 0.239216, 0.447059, 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 1 )
 
 [node name="ClockContainer" type="MarginContainer"]
-margin_right = 229.0
-margin_bottom = 114.0
+margin_right = 237.0
+margin_bottom = 90.0
 script = ExtResource( 2 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_right = 229.0
-margin_bottom = 114.0
+margin_right = 237.0
+margin_bottom = 90.0
 custom_styles/panel = SubResource( 1 )
 
-[node name="ClockText" type="Label" parent="."]
-margin_top = 28.0
-margin_right = 229.0
-margin_bottom = 85.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 237.0
+margin_bottom = 90.0
+custom_constants/margin_right = 18
+custom_constants/margin_left = 18
+
+[node name="ClockText" type="Label" parent="MarginContainer"]
+margin_left = 18.0
+margin_top = 16.0
+margin_right = 219.0
+margin_bottom = 73.0
 custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 
-[node name="Label" type="Label" parent="ClockText"]
-margin_left = 12.0
-margin_top = -14.0
-margin_right = 78.0
+[node name="Label" type="Label" parent="MarginContainer/ClockText"]
+margin_top = -8.0
+margin_right = 66.0
+margin_bottom = 6.0
 text = "Hours Left"

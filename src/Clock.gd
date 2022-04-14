@@ -5,7 +5,7 @@ extends MarginContainer
 # var a = 2
 # var b = "text"
 
-onready var clock = $ClockText
+onready var clock = $MarginContainer/ClockText
 
 # signal emitted when the clock is 0
 signal day_over

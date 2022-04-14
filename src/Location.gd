@@ -12,6 +12,7 @@ signal leave_location
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$LocationBg/ConfirmationDialog.hide()
 	choice1.text = ""
 	choice2.text = ""
 	choice3.text = ""

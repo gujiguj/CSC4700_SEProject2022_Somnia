@@ -16,7 +16,8 @@ signal go_to_location(location)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	enableButtons()
+	disableButtons()
+	$ConfirmationDialog.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

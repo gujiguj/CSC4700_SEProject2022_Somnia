@@ -7,6 +7,12 @@
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.254902, 0.258824, 0.266667, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
 
 [sub_resource type="DynamicFont" id=3]
 size = 18
@@ -49,40 +55,40 @@ border_width_bottom = 3
 border_color = Color( 0, 0, 0, 1 )
 border_blend = true
 
-[node name="PhoneMenu" type="CanvasLayer"]
+[node name="PhoneMenu" type="Control"]
 script = ExtResource( 4 )
 
 [node name="PhoneContainer" type="MarginContainer" parent="."]
-margin_right = 177.0
-margin_bottom = 291.0
+margin_right = 237.0
+margin_bottom = 290.0
 
 [node name="PhoneColor" type="Panel" parent="PhoneContainer"]
-margin_right = 177.0
-margin_bottom = 291.0
+margin_right = 237.0
+margin_bottom = 290.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="PhoneHomeContainer" type="MarginContainer" parent="PhoneContainer"]
-margin_right = 177.0
-margin_bottom = 291.0
+margin_right = 237.0
+margin_bottom = 290.0
 custom_constants/margin_right = 15
 custom_constants/margin_top = 15
 custom_constants/margin_left = 15
-custom_constants/margin_bottom = 35
+custom_constants/margin_bottom = 30
 
 [node name="PhoneHomeMenu" type="ItemList" parent="PhoneContainer/PhoneHomeContainer"]
 margin_left = 15.0
 margin_top = 15.0
-margin_right = 162.0
-margin_bottom = 256.0
+margin_right = 222.0
+margin_bottom = 260.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/selected_focus = SubResource( 4 )
 custom_styles/bg = SubResource( 2 )
 items = [ "Map", ExtResource( 1 ), false, "Tasks", ExtResource( 3 ), false ]
 max_columns = 2
-fixed_column_width = 60
+fixed_column_width = 91
 icon_mode = 0
-fixed_icon_size = Vector2( 60, 60 )
+fixed_icon_size = Vector2( 70, 70 )
 
 [node name="Tasks" type="Panel" parent="."]
 visible = false

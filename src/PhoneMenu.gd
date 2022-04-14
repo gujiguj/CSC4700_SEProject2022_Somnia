@@ -15,6 +15,7 @@ signal task_missed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	enablePhoneMenu()
 	$Tasks.hide()
 	$ConfirmationDialog.hide()
 	# addTask(2, "Go to class")
