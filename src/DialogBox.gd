@@ -43,7 +43,7 @@ func _process(_delta):
 			if !dialog_queue.empty():
 				display_dialog()
 			else:
-				# to be used to display choices 
+				# to be used to display choices, enable map, etc. 
 				emit_signal("queue_finished")
 		# if currently reading, enter key can be pressed to skip the tweening and go to the finished state.
 		State.READING:
