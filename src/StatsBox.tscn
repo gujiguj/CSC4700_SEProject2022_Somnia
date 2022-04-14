@@ -111,5 +111,3 @@ margin_top = 55.0
 margin_right = 331.0
 margin_bottom = 78.0
 text = "oof u are ded"
-
-[connection signal="energy_zero" from="." to="." method="_on_StatsBox_energy_zero"]

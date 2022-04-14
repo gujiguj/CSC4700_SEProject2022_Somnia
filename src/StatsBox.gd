@@ -4,33 +4,33 @@ onready var energy = $StatsBoxContainer/MarginContainer/VBoxContainer/EnergyBar
 onready var stress = $StatsBoxContainer/MarginContainer/VBoxContainer/StressBar
 onready var happiness = $StatsBoxContainer/MarginContainer/VBoxContainer/HappinessBar
 
+# signal emitted when energy is zero, ending the day
 signal energy_zero
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
-func increaseEnergy(var percent):
+func increaseEnergy(percent):
 	energy.value += percent
 	
-func increaseStress(var percent):
+func increaseStress(percent):
 	stress.value += percent
 	
-func increaseHappiness(var percent):
+func increaseHappiness(percent):
 	happiness.value += percent
 
-func decreaseEnergy(var percent):
+func decreaseEnergy(percent):
 	energy.value -= percent
-	if energy.value == 0:
+	if energy.value <= 0:
 		emit_signal("energy_zero")
 
-func decreaseStress(var percent):
+func decreaseStress(percent):
 	stress.value -= percent
 	
-func decreaseHappiness(var percent):
+func decreaseHappiness(percent):
 	happiness.value -= percent
 	
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	energy.value = 100
@@ -39,10 +39,9 @@ func _ready():
 	$DeathMessage.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		decreaseEnergy(5)
-
+#func _process(_delta):
+#	if Input.is_action_just_pressed("ui_accept"):
+#		decreaseEnergy(5)
 
 func _on_StatsBox_energy_zero():
 	$DeathMessage.show()
