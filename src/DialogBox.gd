@@ -45,6 +45,7 @@ func _process(_delta):
 			else:
 				# to be used to display choices, enable map, etc. 
 				emit_signal("queue_finished")
+				hide_dialogbox()
 		# if currently reading, enter key can be pressed to skip the tweening and go to the finished state.
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept"):
@@ -67,12 +68,12 @@ func show_dialogbox():
 	start_symbol.text = START_TEXT
 	dialog_container.show()
 
-# hide the dialog box and clear all text
+# clear all text
 func hide_dialogbox():
 	start_symbol.text = ""
 	end_symbol.text = ""
 	dialog.text = ""
-	dialog_container.hide()
+	# dialog_container.hide()
 
 # displays text received from the front of the dialog queue
 func display_dialog():
