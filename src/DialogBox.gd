@@ -20,17 +20,20 @@ enum State {
 
 var current_state = State.READY
 var dialog_queue = [] # queue for displaying texts
+
+signal queue_finished
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass 
 	# print("Starting state: State.READY")
 	# show_dialogbox()
 	
 	# queue up a bunch of dialog
-	queue_dialog("Example text 1.")
-	queue_dialog("Example text 2.")
-	queue_dialog("Example text 3.")
-	queue_dialog("Example text 4.")
+	# queue_dialog("Example text 1.")
+	# queue_dialog("Example text 2.")
+	# queue_dialog("Example text 3.")
+	# queue_dialog("Example text 4.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -39,6 +42,9 @@ func _process(_delta):
 		State.READY:
 			if !dialog_queue.empty():
 				display_dialog()
+			else:
+				# to be used to display choices 
+				emit_signal("queue_finished")
 		# if currently reading, enter key can be pressed to skip the tweening and go to the finished state.
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept"):
