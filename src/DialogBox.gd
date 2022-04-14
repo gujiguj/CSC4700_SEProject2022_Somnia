@@ -23,8 +23,8 @@ var dialog_queue = [] # queue for displaying texts
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Starting state: State.READY")
-	show_dialogbox()
+	# print("Starting state: State.READY")
+	# show_dialogbox()
 	
 	# queue up a bunch of dialog
 	queue_dialog("Example text 1.")
@@ -83,7 +83,7 @@ func display_dialog():
 	$Tween.start()
 
 # when text is done animating, change state to finished
-func _on_Tween_tween_completed():
+func _on_Tween_tween_completed(_object, _key):
 	end_symbol.text = END_TEXT
 	change_state(State.FINISHED)
 	

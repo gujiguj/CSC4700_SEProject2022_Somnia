@@ -56,7 +56,6 @@ margin_bottom = 56.0
 rect_min_size = Vector2( 29, 0 )
 size_flags_vertical = 0
 custom_fonts/font = SubResource( 2 )
-text = "*"
 
 [node name="Text" type="Label" parent="DialogBoxContainer/MarginContainer/HBoxContainer"]
 margin_left = 33.0
@@ -65,7 +64,6 @@ margin_bottom = 136.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
-text = "You stare and stare at your homework for what seems like hours."
 autowrap = true
 clip_text = true
 
@@ -77,7 +75,6 @@ margin_bottom = 136.0
 rect_min_size = Vector2( 29, 0 )
 size_flags_vertical = 8
 custom_fonts/font = SubResource( 2 )
-text = ">"
 
 [node name="Tween" type="Tween" parent="."]
 
