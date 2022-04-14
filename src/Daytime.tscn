@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://StatsBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Clock.tscn" type="PackedScene" id=2]
@@ -6,10 +6,12 @@
 [ext_resource path="res://DialogBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Location.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Daytime.gd" type="Script" id=7]
 
 [node name="Daytime" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 7 )
 
 [node name="StatsBox" parent="." instance=ExtResource( 1 )]
 
@@ -25,10 +27,7 @@ margin_bottom = 288.0
 
 [node name="Map" parent="." instance=ExtResource( 5 )]
 
-[node name="Dorm" parent="." instance=ExtResource( 6 )]
-
 [node name="Library" parent="." instance=ExtResource( 6 )]
+visible = false
 
-[node name="DiningHall" parent="." instance=ExtResource( 6 )]
-
-[node name="Building" parent="." instance=ExtResource( 6 )]
+[connection signal="go_to_location" from="Map" to="." method="_on_Map_go_to_location"]

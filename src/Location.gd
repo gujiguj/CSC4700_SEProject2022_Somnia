@@ -1,18 +1,18 @@
 extends Control
 
 # Declare member variables here. 
-onready var choices = $LocationBg/ChoicesContainer
-onready var choice1 = $LocationBg/ChoicesContainer/VBoxContainer/Choice1
-onready var choice2 = $LocationBg/ChoicesContainer/VBoxContainer/Choice2
-onready var choice3 = $LocationBg/ChoicesContainer/VBoxContainer/Choice3
-onready var choice_leave = $LocationBg/ChoicesContainer/VBoxContainer/Leave
+onready var choices = $Background/ChoicesContainer
+onready var choice1 = $Background/ChoicesContainer/VBoxContainer/Choice1
+onready var choice2 = $Background/ChoicesContainer/VBoxContainer/Choice2
+onready var choice3 = $Background/ChoicesContainer/VBoxContainer/Choice3
+onready var choice_leave = $Background/ChoicesContainer/VBoxContainer/Leave
 
 # to be used to open up the map
 signal leave_location
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$LocationBg/ConfirmationDialog.hide()
+	$Background/ConfirmationDialog.hide()
 	choice1.text = ""
 	choice2.text = ""
 	choice3.text = ""
@@ -36,7 +36,7 @@ func _on_Choice3_pressed():
 	
 # opens a confirmation dialog asking if player wants to leave
 func _on_Leave_pressed():
-	$LocationBg/ConfirmationDialog.popup()
+	$Background/ConfirmationDialog.popup()
 
 # emits a signal to open up the map when the player confirms they want to leave
 func _on_ConfirmationDialog_confirmed():

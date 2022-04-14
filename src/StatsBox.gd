@@ -36,12 +36,8 @@ func _ready():
 	energy.value = 100
 	stress.value = 0
 	happiness.value = 100
-	$DeathMessage.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(_delta):
 #	if Input.is_action_just_pressed("ui_accept"):
 #		decreaseEnergy(5)
-
-func _on_StatsBox_energy_zero():
-	$DeathMessage.show()
