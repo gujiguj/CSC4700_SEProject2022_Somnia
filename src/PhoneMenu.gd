@@ -7,12 +7,16 @@ extends CanvasLayer
 onready var phone = $PhoneContainer/PhoneHomeContainer/PhoneHomeMenu
 onready var task_list = $Tasks/MarginContainer/TasksList
 
-signal task_completed
+# to be used to open the map
+signal leave_location 
+# to be used by stats system
+signal task_completed 
 signal task_missed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Tasks.hide()
+	$ConfirmationDialog.hide()
 	# addTask(2, "Go to class")
 	# addTask(2, "Do homework")
 	# addTask(2, "Email professor")
@@ -23,15 +27,30 @@ func _ready():
 	# if Input.is_action_just_pressed("ui_accept"):
 	# 	subtractTime(0.25)
 
+# asks if the player wants to leave with a confirmation dialog if the map icon is selected
 # opens tasks menu if the icon on the phone menu is selected
 func _on_PhoneHomeMenu_item_selected(index):
 	match(index):
+		0:
+			$ConfirmationDialog.popup()
 		1:
 			$Tasks.show()
+	disablePhoneMenu()
 
+# disables all items on the phone menu
+func disablePhoneMenu():
+	for index in phone.get_item_count():
+		phone.set_item_disabled(index, true)
+
+# enbales all items on the phone menu
+func enablePhoneMenu():
+	for index in phone.get_item_count():
+		phone.set_item_disabled(index, false)
+	
 # closes tasks menu if the close button is pressed
 func _on_CloseTasksButton_pressed():
 	$Tasks.hide()
+	enablePhoneMenu()
 
 # input: float, string
 # adds a task description and how much time it has left in hours	
@@ -78,3 +97,9 @@ func formatTime(time):
 	# converts a float value of hours to a format of H:M
 	# may implement this later because this is dumb
 	pass
+
+func _on_ConfirmationDialog_popup_hide():
+	enablePhoneMenu()
+
+func _on_ConfirmationDialog_confirmed():
+	emit_signal("leave_location") # to be used to open the map

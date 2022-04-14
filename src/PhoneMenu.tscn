@@ -85,6 +85,7 @@ icon_mode = 0
 fixed_icon_size = Vector2( 60, 60 )
 
 [node name="Tasks" type="Panel" parent="."]
+visible = false
 margin_left = 580.0
 margin_top = 60.0
 margin_right = 967.0
@@ -143,5 +144,16 @@ text = "Task"
 align = 1
 valign = 1
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+margin_left = 527.0
+margin_top = 178.0
+margin_right = 927.0
+margin_bottom = 318.0
+rect_min_size = Vector2( 400, 140 )
+window_title = "Leave"
+dialog_text = "Do you want to leave?"
+
 [connection signal="item_selected" from="PhoneContainer/PhoneHomeContainer/PhoneHomeMenu" to="." method="_on_PhoneHomeMenu_item_selected"]
 [connection signal="pressed" from="Tasks/CloseTasksButton" to="." method="_on_CloseTasksButton_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
+[connection signal="popup_hide" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_popup_hide"]
