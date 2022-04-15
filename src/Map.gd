@@ -12,11 +12,13 @@ onready var building = $MapTexture/BuildingButton
 
 var selected_location = ""
 
+# input: float location name
+# signals which location was selected
 signal go_to_location(location)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	enableButtons()
+	enable_buttons()
 	$ConfirmationDialog.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,14 +26,14 @@ func _ready():
 #	pass
 
 # disables all location buttons
-func disableButtons():
+func disable_buttons():
 	dorm.disabled = true
 	library.disabled = true
 	dining_hall.disabled = true
 	building.disabled = true
 	
 # enables all location buttons
-func enableButtons():
+func enable_buttons():
 	dorm.disabled = false
 	library.disabled = false
 	dining_hall.disabled = false

@@ -11,24 +11,24 @@ signal energy_zero
 # var a = 2
 # var b = "text"
 
-func increaseEnergy(percent):
+func increase_energy(percent):
 	energy.value += percent
 	
-func increaseStress(percent):
+func increase_stress(percent):
 	stress.value += percent
 	
-func increaseHappiness(percent):
+func increase_happiness(percent):
 	happiness.value += percent
 
-func decreaseEnergy(percent):
+func decrease_energy(percent):
 	energy.value -= percent
 	if energy.value <= 0:
 		emit_signal("energy_zero")
 
-func decreaseStress(percent):
+func decrease_stress(percent):
 	stress.value -= percent
 	
-func decreaseHappiness(percent):
+func decrease_happiness(percent):
 	happiness.value -= percent
 	
 # Called when the node enters the scene tree for the first time.

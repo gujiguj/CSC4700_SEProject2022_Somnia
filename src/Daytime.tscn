@@ -31,6 +31,7 @@ margin_bottom = 288.0
 visible = false
 
 [connection signal="queue_finished" from="DialogBox" to="." method="showChoices"]
+[connection signal="leave_location" from="PhoneMenu" to="." method="goToMap"]
 [connection signal="go_to_location" from="Map" to="." method="_on_Map_go_to_location"]
 [connection signal="completed_task" from="Library" to="." method="completedTask"]
 [connection signal="gained_energy" from="Library" to="." method="increaseEnergy"]

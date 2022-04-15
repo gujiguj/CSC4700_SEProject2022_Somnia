@@ -21,8 +21,8 @@ enum State {
 var current_state = State.READY
 var dialog_queue = [] # queue for displaying texts
 
-signal queue_finished
-signal end_of_line
+signal queue_finished # for other functions to wait on (mainly for making nodes visible)
+signal end_of_line # ^ same story
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,18 +59,14 @@ func _process(_delta):
 # queue up dialog
 func queue_dialog(next_text):
 	dialog_queue.push_back(next_text)
+	
+func clear_dialog():
+	dialog_queue.clear()
 
 # shows the dialog box with just the start symbol
 func show_dialogbox():
 	start_symbol.text = START_TEXT
 	dialog_container.show()
-
-# clear all text
-func hide_dialogbox():
-	start_symbol.text = ""
-	end_symbol.text = ""
-	dialog.text = ""
-	# dialog_container.hide()
 
 # displays text received from the front of the dialog queue
 func display_dialog():
@@ -85,8 +81,16 @@ func display_dialog():
 	# & some generic Tween properties
 	$Tween.interpolate_property(dialog, "percent_visible", 0.0, 1.0, len(next_text)*CHAR_READ_RATE, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
+	# for other functions to wait on (mainly for making nodes visible)
 	if dialog_queue.empty():
 		emit_signal("queue_finished")
+
+# clear all text
+func hide_dialogbox():
+	start_symbol.text = ""
+	end_symbol.text = ""
+	dialog.text = ""
+	# dialog_container.hide()
 
 # when text is done animating, change state to finished
 func _on_Tween_tween_completed(_object, _key):
@@ -105,6 +109,3 @@ func change_state(next_state):
 			print("Changing state to: State.READING")
 		State.FINISHED:
 			print("Changing state to: State.FINISHED")
-			
-
-

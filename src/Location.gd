@@ -7,7 +7,8 @@ onready var choice2 = $Background/ChoicesContainer/VBoxContainer/Choice2
 onready var choice3 = $Background/ChoicesContainer/VBoxContainer/Choice3
 onready var choice_leave = $Background/ChoicesContainer/VBoxContainer/Leave
 
-onready var dialog = []
+# flavor text dialog array to be queued
+onready var flavor = []
 
 # to be used to open up the map
 signal leave_location
@@ -61,11 +62,12 @@ func _on_ConfirmationDialog_confirmed():
 	choices.hide()
 	emit_signal("leave_location")
 	
-func hideChoices():
+func hide_choices():
 	choices.hide()
 
-func showChoices():
+func show_choices():
 	choices.show()
 	
-func getDialog():
-	return dialog
+# returns the flavor text
+func get_flavor():
+	return flavor

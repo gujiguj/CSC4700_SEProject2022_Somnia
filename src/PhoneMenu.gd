@@ -15,7 +15,7 @@ signal task_missed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	enablePhoneMenu()
+	enable_phone_menu()
 	$Tasks.hide()
 	$ConfirmationDialog.hide()
 	# addTask(2, "Go to class")
@@ -35,27 +35,34 @@ func _on_PhoneHomeMenu_item_selected(index):
 		0:
 			$ConfirmationDialog.popup()
 		1:
+			print("here are your tasks")
 			$Tasks.show()
-	disablePhoneMenu()
+	disable_phone_menu()
 
 # disables all items on the phone menu
-func disablePhoneMenu():
+func disable_phone_menu():
 	for index in phone.get_item_count():
 		phone.set_item_disabled(index, true)
+		
+func disable_map_app():
+	phone.set_item_disabled(0, true)
 
 # enbales all items on the phone menu
-func enablePhoneMenu():
+func enable_phone_menu():
 	for index in phone.get_item_count():
 		phone.set_item_disabled(index, false)
+		
+func enable_map_app():
+	phone.set_item_disabled(0, false)
 	
 # closes tasks menu if the close button is pressed
 func _on_CloseTasksButton_pressed():
 	$Tasks.hide()
-	enablePhoneMenu()
+	enable_phone_menu()
 
 # input: float, string
 # adds a task description and how much time it has left in hours	
-func addTask(time_left, task):
+func add_task(time_left, task):
 	task_list.add_item(str(time_left))
 	task_list.add_item(task)
 
@@ -63,7 +70,7 @@ func addTask(time_left, task):
 # searches for the corresponding task by the string and removes it	
 # emits a signal to be used by the stats system
 # THIS MUST BE CALLED BEFORE subtractTime!!!!
-func completeTask(task):
+func complete_task(task):
 	var remove_queue = []
 	for index in task_list.get_item_count():
 		if task_list.get_item_text(index) == task:
@@ -78,7 +85,7 @@ func completeTask(task):
 # input: float
 # subtracts time from each of the tasks
 # emits a signal if any task runs out of time to be used by stats system
-func subtractTime(time):
+func subtract_time(time):
 	var remove_queue = []
 	for index in task_list.get_item_count():
 		if index % 2 == 0:
@@ -102,7 +109,7 @@ func subtractTime(time):
 	# pass
 
 func _on_ConfirmationDialog_popup_hide():
-	enablePhoneMenu()
+	enable_phone_menu()
 
 func _on_ConfirmationDialog_confirmed():
 	emit_signal("leave_location") # to be used to open the map
