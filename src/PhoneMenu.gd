@@ -70,9 +70,10 @@ func completeTask(task):
 			remove_queue.push_front(index-1)
 			remove_queue.push_front(index)
 			break
-	for index in remove_queue:
-		task_list.remove_item(index)
-	emit_signal("task_completed")
+	if remove_queue.empty() == false:
+		for index in remove_queue:
+			emit_signal("task_completed")
+			task_list.remove_item(index)
 	
 # input: float
 # subtracts time from each of the tasks
@@ -90,14 +91,15 @@ func subtractTime(time):
 			if text <= 0:
 				remove_queue.push_front(index)
 				remove_queue.push_front(index+1)
-	for index in remove_queue:
-		task_list.remove_item(index)
-		emit_signal("task_missed") # to be used by stats system
+	if remove_queue.empty() == false:
+		for index in remove_queue:
+			task_list.remove_item(index)
+			emit_signal("task_missed") # to be used by stats system
 		
-func formatTime(time):
+# func formatTime(time):
 	# converts a float value of hours to a format of H:M
 	# may implement this later because this is dumb
-	pass
+	# pass
 
 func _on_ConfirmationDialog_popup_hide():
 	enablePhoneMenu()

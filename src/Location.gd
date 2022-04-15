@@ -7,11 +7,29 @@ onready var choice2 = $Background/ChoicesContainer/VBoxContainer/Choice2
 onready var choice3 = $Background/ChoicesContainer/VBoxContainer/Choice3
 onready var choice_leave = $Background/ChoicesContainer/VBoxContainer/Leave
 
+onready var dialog = []
+
 # to be used to open up the map
 signal leave_location
 
+signal passed_time(hours) # float hours; used to pass time
+signal completed_task(task) # string task; used to complete a task
+
+# string dialog
+# used to signal that choice dialog has been queued
+signal queued_dialog(dialog)
+
+# int percent; gain/lose various stats
+signal gained_energy(percent) 
+signal gained_stress(percent) 
+signal gained_happiness(percent)
+signal lost_energy(percent)
+signal lost_stress(percent)
+signal lost_happiness(percent)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	choices.hide()
 	$Background/ConfirmationDialog.hide()
 	choice1.text = ""
 	choice2.text = ""
@@ -42,3 +60,12 @@ func _on_Leave_pressed():
 func _on_ConfirmationDialog_confirmed():
 	choices.hide()
 	emit_signal("leave_location")
+	
+func hideChoices():
+	choices.hide()
+
+func showChoices():
+	choices.show()
+	
+func getDialog():
+	return dialog

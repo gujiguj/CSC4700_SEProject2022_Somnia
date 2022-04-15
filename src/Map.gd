@@ -38,30 +38,29 @@ func enableButtons():
 	building.disabled = false
 
 func _on_DormButton_pressed():
-	selected_location = "dorm"
+	selected_location = "Dorm"
 	$ConfirmationDialog.window_title = "Go to dorm"
 	$ConfirmationDialog.dialog_text = "Do you want to go to your dorm?"
 	$ConfirmationDialog.popup_centered()
 
 func _on_LibraryButton_pressed():
-	selected_location = "library"
+	selected_location = "Library"
 	$ConfirmationDialog.window_title = "Go to library"
 	$ConfirmationDialog.dialog_text = "Do you want to go to the library?"
 	$ConfirmationDialog.popup_centered()
 
 func _on_DiningHallButton_pressed():
-	selected_location = "dining hall"
+	selected_location = "DiningHall"
 	$ConfirmationDialog.window_title = "Go to dining hall"
 	$ConfirmationDialog.dialog_text = "Do you want to go to the dining hall?"
 	$ConfirmationDialog.popup_centered()
 
 func _on_BuildingButton_pressed():
-	selected_location = "building"
+	selected_location = "Building"
 	$ConfirmationDialog.window_title = "Go to class"
 	$ConfirmationDialog.dialog_text = "Do you want to go to class?"
 	$ConfirmationDialog.popup_centered()
 
 func _on_ConfirmationDialog_confirmed():
-	$MapTexture.hide()
 	emit_signal("go_to_location", selected_location)
-	print("went to ", selected_location)
+	# print("went to ", selected_location)

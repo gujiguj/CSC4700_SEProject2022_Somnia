@@ -5,7 +5,7 @@
 [ext_resource path="res://PhoneMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DialogBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Location.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Library.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Daytime.gd" type="Script" id=7]
 
 [node name="Daytime" type="Control"]
@@ -30,4 +30,15 @@ margin_bottom = 288.0
 [node name="Library" parent="." instance=ExtResource( 6 )]
 visible = false
 
+[connection signal="queue_finished" from="DialogBox" to="." method="showChoices"]
 [connection signal="go_to_location" from="Map" to="." method="_on_Map_go_to_location"]
+[connection signal="completed_task" from="Library" to="." method="completedTask"]
+[connection signal="gained_energy" from="Library" to="." method="increaseEnergy"]
+[connection signal="gained_happiness" from="Library" to="." method="increaseHappiness"]
+[connection signal="gained_stress" from="Library" to="." method="increaseStress"]
+[connection signal="leave_location" from="Library" to="." method="goToMap"]
+[connection signal="lost_energy" from="Library" to="." method="decreaseEnergy"]
+[connection signal="lost_happiness" from="Library" to="." method="decreaseHappiness"]
+[connection signal="lost_stress" from="Library" to="." method="decreaseStress"]
+[connection signal="passed_time" from="Library" to="." method="completedAction"]
+[connection signal="queued_dialog" from="Library" to="." method="playChoiceDialog"]

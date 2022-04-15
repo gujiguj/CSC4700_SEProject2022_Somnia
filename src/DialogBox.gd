@@ -22,6 +22,7 @@ var current_state = State.READY
 var dialog_queue = [] # queue for displaying texts
 
 signal queue_finished
+signal end_of_line
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,10 +43,6 @@ func _process(_delta):
 		State.READY:
 			if !dialog_queue.empty():
 				display_dialog()
-			else:
-				# to be used to display choices, enable map, etc. 
-				emit_signal("queue_finished")
-				hide_dialogbox()
 		# if currently reading, enter key can be pressed to skip the tweening and go to the finished state.
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept"):
@@ -53,11 +50,11 @@ func _process(_delta):
 				$Tween.remove_all()
 				end_symbol.text = END_TEXT
 				change_state(State.FINISHED)
+				emit_signal("end_of_line")
 		# if done reading, enter key can be pressed to bring the box back to the ready state
 		State.FINISHED:
 			if Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
-				hide_dialogbox()
 
 # queue up dialog
 func queue_dialog(next_text):
@@ -88,11 +85,14 @@ func display_dialog():
 	# & some generic Tween properties
 	$Tween.interpolate_property(dialog, "percent_visible", 0.0, 1.0, len(next_text)*CHAR_READ_RATE, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
+	if dialog_queue.empty():
+		emit_signal("queue_finished")
 
 # when text is done animating, change state to finished
 func _on_Tween_tween_completed(_object, _key):
 	end_symbol.text = END_TEXT
 	change_state(State.FINISHED)
+	emit_signal("end_of_line")
 	
 # changes the current state of the box
 # match function that prints the current state after changing for tracking purposes
