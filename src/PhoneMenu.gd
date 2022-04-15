@@ -5,7 +5,9 @@ extends Control
 # var a = 2
 # var b = "text"
 onready var phone = $PhoneContainer/PhoneHomeContainer/PhoneHomeMenu
-onready var task_list = $Tasks/MarginContainer/TasksList
+onready var task_list = $Tasks/Panel/MarginContainer/TasksList
+
+var allow_map = false
 
 # to be used to open the map
 signal leave_location 
@@ -45,14 +47,19 @@ func disable_phone_menu():
 		phone.set_item_disabled(index, true)
 		
 func disable_map_app():
+	allow_map = false
 	phone.set_item_disabled(0, true)
 
 # enbales all items on the phone menu
 func enable_phone_menu():
-	for index in phone.get_item_count():
-		phone.set_item_disabled(index, false)
-		
+	if allow_map:
+		for index in phone.get_item_count():
+			phone.set_item_disabled(index, false)
+	else:
+		phone.set_item_disabled(1, false)
+
 func enable_map_app():
+	allow_map = true
 	phone.set_item_disabled(0, false)
 	
 # closes tasks menu if the close button is pressed

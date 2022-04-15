@@ -41,7 +41,6 @@ func _on_Choice2_pressed():
 		"Naptime... zzz..."
 	]
 	emit_signal("queued_dialog", dialog)
-	choice2.disabled = true
 	emit_signal("passed_time", 0.5)
 	emit_signal("gained_energy", 5)
 	
@@ -51,8 +50,7 @@ func _on_Choice3_pressed():
 	yield($Background/EndDayConfirmation, "confirmed")
 	hide_choices()
 	var dialog = [
-		"You don't leave your dorm for the rest of the day.",
-		"It's time for bed now..."
+		"You don't leave your dorm for the rest of the day."
 	]
 	emit_signal("queued_dialog", dialog)
-	# choice3.disabled = true
+	emit_signal("end_day")

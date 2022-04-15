@@ -23,12 +23,15 @@ func _ready():
 # input: float representing hours passed
 # used to decrease time on the clock 
 # emits day over signal if time is less than or equal to 0
-func passTime(hours):
+func pass_time(hours):
 	var curr_time = float(clock.text)
 	var new_time = curr_time - hours
 	clock.text = str(new_time)
 	if new_time <= 0:
 		emit_signal("day_over")
 	
-func formatTime():
+func end_day():
+	pass_time(float(clock.text))
+
+func format_time():
 	pass

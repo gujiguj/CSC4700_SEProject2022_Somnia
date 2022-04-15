@@ -29,7 +29,7 @@ border_color = Color( 0.988235, 1, 0.290196, 1 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.831373, 0.980392, 0.988235, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.905882, 0.905882, 0.905882, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -43,7 +43,7 @@ size = 24
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.905882, 0.905882, 0.905882, 1 )
 
 [sub_resource type="StyleBoxFlat" id=8]
@@ -92,76 +92,80 @@ fixed_column_width = 91
 icon_mode = 0
 fixed_icon_size = Vector2( 70, 70 )
 
-[node name="Tasks" type="Panel" parent="."]
+[node name="Tasks" type="MarginContainer" parent="."]
 visible = false
-margin_left = 580.0
-margin_top = 60.0
-margin_right = 967.0
-margin_bottom = 445.0
-custom_styles/panel = SubResource( 5 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 570.0
+margin_top = -146.0
+margin_right = 940.0
+margin_bottom = 183.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Tasks"]
-margin_right = 387.0
-margin_bottom = 385.0
-custom_constants/margin_right = 20
+[node name="Panel" type="Panel" parent="Tasks"]
+margin_right = 370.0
+margin_bottom = 329.0
+custom_styles/panel = SubResource( 9 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Tasks/Panel"]
+margin_right = 370.0
+margin_bottom = 329.0
+custom_constants/margin_right = 15
 custom_constants/margin_top = 50
 custom_constants/margin_left = 40
 custom_constants/margin_bottom = 15
 
-[node name="TasksList" type="ItemList" parent="Tasks/MarginContainer"]
+[node name="TasksList" type="ItemList" parent="Tasks/Panel/MarginContainer"]
 margin_left = 40.0
 margin_top = 50.0
-margin_right = 367.0
-margin_bottom = 370.0
+margin_right = 355.0
+margin_bottom = 314.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/vseparation = 5
 custom_constants/hseparation = 10
 custom_fonts/font = SubResource( 6 )
-custom_styles/bg = SubResource( 7 )
+custom_styles/bg = SubResource( 10 )
 max_columns = 2
 
-[node name="CloseTasksButton" type="Button" parent="Tasks"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -54.0
-margin_top = 12.0
-margin_right = -13.0
-margin_bottom = 48.0
+[node name="CloseTasksButton" type="Button" parent="Tasks/Panel"]
+margin_left = 314.0
+margin_top = 15.0
+margin_right = 355.0
+margin_bottom = 50.0
 custom_colors/font_color = Color( 0.831373, 0.341176, 0.341176, 1 )
 custom_styles/normal = SubResource( 8 )
 text = "X"
 
-[node name="TimeLeftLabel" type="Label" parent="Tasks"]
-margin_left = 24.0
-margin_top = 13.0
-margin_right = 88.0
-margin_bottom = 56.0
+[node name="TimeLeftLabel" type="Label" parent="Tasks/Panel"]
+margin_left = 30.0
+margin_top = 19.0
+margin_right = 78.0
+margin_bottom = 50.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Time
 Left"
 align = 1
 valign = 1
 
-[node name="TaskNameLabel" type="Label" parent="Tasks"]
-margin_left = 122.0
-margin_top = 15.0
-margin_right = 245.0
-margin_bottom = 58.0
+[node name="TaskNameLabel" type="Label" parent="Tasks/Panel"]
+margin_left = 106.0
+margin_top = 30.0
+margin_right = 208.0
+margin_bottom = 59.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Task"
 align = 1
 valign = 1
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-margin_left = 527.0
-margin_top = 178.0
-margin_right = 927.0
-margin_bottom = 318.0
+margin_left = 282.0
+margin_top = 220.0
+margin_right = 682.0
+margin_bottom = 360.0
 rect_min_size = Vector2( 400, 140 )
 window_title = "Leave"
 dialog_text = "Do you want to leave?"
 
 [connection signal="item_selected" from="PhoneContainer/PhoneHomeContainer/PhoneHomeMenu" to="." method="_on_PhoneHomeMenu_item_selected"]
-[connection signal="pressed" from="Tasks/CloseTasksButton" to="." method="_on_CloseTasksButton_pressed"]
+[connection signal="pressed" from="Tasks/Panel/CloseTasksButton" to="." method="_on_CloseTasksButton_pressed"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
 [connection signal="popup_hide" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_popup_hide"]
