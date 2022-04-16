@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://StatsBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Clock.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Library.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Daytime.gd" type="Script" id=7]
 [ext_resource path="res://Dorm.tscn" type="PackedScene" id=8]
+[ext_resource path="res://DiningHall.gd" type="Script" id=9]
 
 [node name="Daytime" type="Control"]
 anchor_right = 1.0
@@ -21,6 +22,11 @@ visible = false
 
 [node name="Dorm" parent="." instance=ExtResource( 8 )]
 visible = false
+
+[node name="DiningHall" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 9 )
 
 [node name="PhoneMenu" parent="." instance=ExtResource( 3 )]
 margin_top = 288.0
