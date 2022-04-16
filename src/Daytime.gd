@@ -4,15 +4,15 @@ extends Control
 # var a = 2
 # var b = "text"
 
-onready var locations = [get_node("Library"), get_node("Dorm")]
+onready var locations = [get_node("Library"), get_node("Dorm"), get_node("DiningHall")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$DialogBox.queue_dialog("Where do you want to go?")
-	$Map.show()
-	$PhoneMenu.disable_map_app()
 	for place in locations:
 		place.hide()
+	$PhoneMenu.disable_map_app()
+	$DialogBox.queue_dialog("Where do you want to go?")
+	$Map.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -33,9 +33,13 @@ func _on_Map_go_to_location(location):
 			for line in $Library.get_flavor():
 				$DialogBox.queue_dialog(line)
 		"DiningHall":
-			pass
+			$DiningHall.show()
+			for line in $DiningHall.get_flavor():
+				$DialogBox.queue_dialog(line)
 		"Building":
-			pass
+			$Building.show()
+			for line in $Building.get_flavor():
+				$DialogBox.queue_dialog(line)
 
 # input: float hours
 # subtracts time from tasks on the phone menu
@@ -78,10 +82,10 @@ func go_to_map():
 
 # shows choices after a queue of dialog ends
 func show_choices():
-	yield($DialogBox, "end_of_line")
-	$PhoneMenu.enable_map_app()
-	$PhoneMenu.enable_phone_menu()
 	if !$Map.is_visible():
+		yield($DialogBox, "end_of_line")
+		$PhoneMenu.enable_map_app()
+		$PhoneMenu.enable_phone_menu()
 		get_node($Map.selected_location).show_choices()
 		#match curr_location:
 		#	"Dorm":

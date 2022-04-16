@@ -8,7 +8,7 @@
 [ext_resource path="res://Library.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Daytime.gd" type="Script" id=7]
 [ext_resource path="res://Dorm.tscn" type="PackedScene" id=8]
-[ext_resource path="res://DiningHall.gd" type="Script" id=9]
+[ext_resource path="res://DiningHall.tscn" type="PackedScene" id=9]
 
 [node name="Daytime" type="Control"]
 anchor_right = 1.0
@@ -23,10 +23,8 @@ visible = false
 [node name="Dorm" parent="." instance=ExtResource( 8 )]
 visible = false
 
-[node name="DiningHall" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 9 )
+[node name="DiningHall" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [node name="PhoneMenu" parent="." instance=ExtResource( 3 )]
 margin_top = 288.0
@@ -62,6 +60,16 @@ margin_bottom = 287.0
 [connection signal="lost_stress" from="Dorm" to="." method="decrease_stress"]
 [connection signal="passed_time" from="Dorm" to="." method="pass_time"]
 [connection signal="queued_dialog" from="Dorm" to="." method="play_choice_dialog"]
+[connection signal="completed_task" from="DiningHall" to="." method="complete_task"]
+[connection signal="gained_energy" from="DiningHall" to="." method="increase_energy"]
+[connection signal="gained_happiness" from="DiningHall" to="." method="increase_happiness"]
+[connection signal="gained_stress" from="DiningHall" to="." method="increase_stress"]
+[connection signal="leave_location" from="DiningHall" to="." method="go_to_map"]
+[connection signal="lost_energy" from="DiningHall" to="." method="decrease_energy"]
+[connection signal="lost_happiness" from="DiningHall" to="." method="decrease_happiness"]
+[connection signal="lost_stress" from="DiningHall" to="." method="decrease_stress"]
+[connection signal="passed_time" from="DiningHall" to="." method="pass_time"]
+[connection signal="queued_dialog" from="DiningHall" to="." method="play_choice_dialog"]
 [connection signal="leave_location" from="PhoneMenu" to="." method="go_to_map"]
 [connection signal="queue_finished" from="DialogBox" to="." method="show_choices"]
 [connection signal="day_over" from="ClockContainer" to="." method="_on_ClockContainer_day_over"]
