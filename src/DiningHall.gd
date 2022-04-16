@@ -18,6 +18,7 @@ func _ready():
 	choice1.text = "Eat a salad and some fruit"
 	choice2.text = "Eat a chicken sandwich and fries"
 	choice3.text = "Have two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda."
+	choice3.hint_tooltip = choice3.text
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

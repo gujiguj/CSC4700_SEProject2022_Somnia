@@ -10,5 +10,8 @@ script = ExtResource( 3 )
 [node name="Background" parent="." index="0"]
 texture = ExtResource( 2 )
 
-[node name="ConfirmationDialog" parent="Background" index="1"]
-visible = false
+[node name="Choice2" parent="Background/ChoicesContainer/VBoxContainer" index="1"]
+clip_text = false
+
+[node name="Choice3" parent="Background/ChoicesContainer/VBoxContainer" index="2"]
+clip_text = false

@@ -30,7 +30,7 @@ signal lost_happiness(percent)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	choices.hide()
+	hide_choices()
 	$Background/ConfirmationDialog.hide()
 	choice1.text = ""
 	choice2.text = ""
@@ -55,7 +55,7 @@ func _on_Choice3_pressed():
 	
 # opens a confirmation dialog asking if player wants to leave
 func _on_Leave_pressed():
-	$Background/ConfirmationDialog.popup()
+	$Background/ConfirmationDialog.popup_centered()
 
 # emits a signal to open up the map when the player confirms they want to leave
 func _on_ConfirmationDialog_confirmed():
