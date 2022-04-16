@@ -45,6 +45,7 @@ func _process(_delta):
 				display_dialog()
 		# if currently reading, enter key can be pressed to skip the tweening and go to the finished state.
 		State.READING:
+			end_symbol.text = ""
 			if Input.is_action_just_pressed("ui_accept"):
 				dialog.percent_visible = 1.0
 				$Tween.remove_all()
