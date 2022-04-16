@@ -23,23 +23,10 @@ func _ready():
 func _on_Map_go_to_location(location):
 	$Map.hide()
 	$PhoneMenu.disable_phone_menu()
-	match location:
-		"Dorm":
-			$Dorm.show()
-			for line in $Dorm.get_flavor():
-				$DialogBox.queue_dialog(line)
-		"Library":
-			$Library.show()
-			for line in $Library.get_flavor():
-				$DialogBox.queue_dialog(line)
-		"DiningHall":
-			$DiningHall.show()
-			for line in $DiningHall.get_flavor():
-				$DialogBox.queue_dialog(line)
-		"Building":
-			$Building.show()
-			for line in $Building.get_flavor():
-				$DialogBox.queue_dialog(line)
+	var selected = get_node(location)
+	selected.show()
+	for line in selected.get_flavor():
+		$DialogBox.queue_dialog(line)
 
 # input: float hours
 # subtracts time from tasks on the phone menu
@@ -73,11 +60,12 @@ func decrease_happiness(percent):
 # waits for the leave text to finish before leaving
 func go_to_map():
 	$DialogBox.clear_dialog()
-	$PhoneMenu.disable_phone_menu()
 	$PhoneMenu.disable_map_app()
+	$PhoneMenu.disable_phone_menu()
 	$DialogBox.queue_dialog("You leave the " + $Map.selected_location + ".")
 	yield($DialogBox, "end_of_line")
-	get_node($Map.selected_location).hide()
+	for place in locations:
+		place.hide()
 	$Map.show()
 
 # shows choices after a queue of dialog ends

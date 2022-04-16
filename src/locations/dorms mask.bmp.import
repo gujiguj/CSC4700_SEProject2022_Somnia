@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/dorms mask.bmp-b683476d66a7ddbd2feeff3b4f33d0f3.res"
+
+[deps]
+
+source_file="res://locations/dorms mask.bmp"
+dest_files=[ "res://.import/dorms mask.bmp-b683476d66a7ddbd2feeff3b4f33d0f3.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5

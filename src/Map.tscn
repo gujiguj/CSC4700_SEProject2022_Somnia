@@ -1,14 +1,19 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://game assets 2/building.png" type="Texture" id=1]
-[ext_resource path="res://game assets 2/library.png" type="Texture" id=2]
-[ext_resource path="res://game assets 2/solo map.png" type="Texture" id=3]
-[ext_resource path="res://game assets 2/dorms.png" type="Texture" id=4]
-[ext_resource path="res://game assets 2/dining hall and co.png" type="Texture" id=5]
-[ext_resource path="res://game assets 2/dorms_bitmap_pls.bmp" type="BitMap" id=6]
+[ext_resource path="res://locations/hall.png" type="Texture" id=1]
+[ext_resource path="res://locations/library.png" type="Texture" id=2]
+[ext_resource path="res://locations/solo map.png" type="Texture" id=3]
+[ext_resource path="res://locations/dorm.png" type="Texture" id=4]
+[ext_resource path="res://locations/dining hall.png" type="Texture" id=5]
+[ext_resource path="res://locations/dorm mask.png" type="BitMap" id=6]
 [ext_resource path="res://Map.gd" type="Script" id=7]
-[ext_resource path="res://game assets 2/dining hall mask.png" type="BitMap" id=8]
-[ext_resource path="res://game assets 2/library mask.png" type="BitMap" id=9]
+[ext_resource path="res://locations/dining hall hover.png" type="Texture" id=8]
+[ext_resource path="res://locations/library mask.png" type="BitMap" id=9]
+[ext_resource path="res://locations/dorm hover.png" type="Texture" id=10]
+[ext_resource path="res://locations/library hover.png" type="Texture" id=11]
+[ext_resource path="res://locations/hall hover.png" type="Texture" id=12]
+[ext_resource path="res://locations/dining hall mask.png" type="BitMap" id=13]
+[ext_resource path="res://locations/hall mask.png" type="BitMap" id=14]
 
 [node name="Map" type="Control"]
 margin_left = 237.0
@@ -22,11 +27,12 @@ margin_bottom = 580.0
 texture = ExtResource( 3 )
 
 [node name="DormButton" type="TextureButton" parent="MapTexture"]
-margin_left = 23.0
-margin_top = 28.0
-margin_right = 260.0
-margin_bottom = 239.0
+margin_left = 21.0
+margin_top = 152.0
+margin_right = 134.0
+margin_bottom = 244.0
 texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 10 )
 texture_click_mask = ExtResource( 6 )
 
 [node name="LibraryButton" type="TextureButton" parent="MapTexture"]
@@ -35,22 +41,26 @@ margin_top = 334.0
 margin_right = 244.0
 margin_bottom = 547.0
 texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 11 )
 texture_click_mask = ExtResource( 9 )
 
 [node name="DiningHallButton" type="TextureButton" parent="MapTexture"]
-margin_left = 325.0
+margin_left = 746.0
 margin_top = 110.0
-margin_right = 941.0
-margin_bottom = 537.0
+margin_right = 942.0
+margin_bottom = 392.0
 texture_normal = ExtResource( 5 )
-texture_click_mask = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+texture_click_mask = ExtResource( 13 )
 
-[node name="BuildingButton" type="TextureButton" parent="MapTexture"]
-margin_left = 346.0
-margin_top = 37.0
-margin_right = 494.0
-margin_bottom = 338.0
+[node name="HallButton" type="TextureButton" parent="MapTexture"]
+margin_left = 532.0
+margin_top = 52.0
+margin_right = 602.0
+margin_bottom = 278.0
 texture_normal = ExtResource( 1 )
+texture_hover = ExtResource( 12 )
+texture_click_mask = ExtResource( 14 )
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 anchor_left = 0.5
@@ -68,5 +78,5 @@ size_flags_vertical = 4
 [connection signal="pressed" from="MapTexture/DormButton" to="." method="_on_DormButton_pressed"]
 [connection signal="pressed" from="MapTexture/LibraryButton" to="." method="_on_LibraryButton_pressed"]
 [connection signal="pressed" from="MapTexture/DiningHallButton" to="." method="_on_DiningHallButton_pressed"]
-[connection signal="pressed" from="MapTexture/BuildingButton" to="." method="_on_BuildingButton_pressed"]
+[connection signal="pressed" from="MapTexture/HallButton" to="." method="_on_HallButton_pressed"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]

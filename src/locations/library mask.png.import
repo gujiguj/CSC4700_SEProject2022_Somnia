@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/library mask.png-96f12abe52973a4db2b31b1d387c200f.res"
+
+[deps]
+
+source_file="res://locations/library mask.png"
+dest_files=[ "res://.import/library mask.png-96f12abe52973a4db2b31b1d387c200f.res" ]
+
+[params]
+
+create_from=1
+threshold=0.5

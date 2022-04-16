@@ -59,7 +59,7 @@ func _on_Leave_pressed():
 
 # emits a signal to open up the map when the player confirms they want to leave
 func _on_ConfirmationDialog_confirmed():
-	choices.hide()
+	hide_choices()
 	emit_signal("leave_location")
 	
 func hide_choices():

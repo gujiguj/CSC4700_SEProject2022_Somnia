@@ -8,7 +8,7 @@ extends Control
 onready var dorm = $MapTexture/DormButton
 onready var library = $MapTexture/LibraryButton
 onready var dining_hall = $MapTexture/DiningHallButton
-onready var building = $MapTexture/BuildingButton
+onready var hall = $MapTexture/HallButton
 
 var selected_location = ""
 
@@ -30,14 +30,14 @@ func disable_buttons():
 	dorm.disabled = true
 	library.disabled = true
 	dining_hall.disabled = true
-	building.disabled = true
+	hall.disabled = true
 	
 # enables all location buttons
 func enable_buttons():
 	dorm.disabled = false
 	library.disabled = false
 	dining_hall.disabled = false
-	building.disabled = false
+	hall.disabled = false
 
 func _on_DormButton_pressed():
 	selected_location = "Dorm"
@@ -57,8 +57,8 @@ func _on_DiningHallButton_pressed():
 	$ConfirmationDialog.dialog_text = "Do you want to go to the dining hall?"
 	$ConfirmationDialog.popup_centered()
 
-func _on_BuildingButton_pressed():
-	selected_location = "Building"
+func _on_HallButton_pressed():
+	selected_location = "Hall"
 	$ConfirmationDialog.window_title = "Go to class"
 	$ConfirmationDialog.dialog_text = "Do you want to go to class?"
 	$ConfirmationDialog.popup_centered()
@@ -66,3 +66,4 @@ func _on_BuildingButton_pressed():
 func _on_ConfirmationDialog_confirmed():
 	emit_signal("go_to_location", selected_location)
 	# print("went to ", selected_location)
+
