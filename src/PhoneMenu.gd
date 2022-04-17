@@ -4,8 +4,9 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var phone = $PhoneContainer/PhoneHomeContainer/PhoneHomeMenu
 onready var task_list = $Tasks/Panel/MarginContainer/TasksList
+onready var map_button = $PhoneContainer/PhoneHomeContainer/GridContainer/MapButton
+onready var tasks_button = $PhoneContainer/PhoneHomeContainer/GridContainer/TasksButton
 
 var allow_map = false
 
@@ -17,6 +18,7 @@ signal task_missed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	disable_map_app()
 	enable_phone_menu()
 	$Tasks.hide()
 	$ConfirmationDialog.hide()
@@ -30,37 +32,43 @@ func _ready():
 	# if Input.is_action_just_pressed("ui_accept"):
 	# 	subtractTime(0.25)
 
-# asks if the player wants to leave with a confirmation dialog if the map icon is selected
-# opens tasks menu if the icon on the phone menu is selected
-func _on_PhoneHomeMenu_item_selected(index):
-	match(index):
-		0:
-			$ConfirmationDialog.popup()
-		1:
-			print("here are your tasks")
-			$Tasks.show()
+# when map app is clicked
+# asks if the player wants to leave with a confirmation dialog 
+func _on_MapButton_pressed():
+	$ConfirmationDialog.popup()
+	disable_phone_menu()
+
+# when tasks app is clicked
+# opens tasks menu 
+func _on_TasksButton_pressed():
+	print("here are your tasks")
+	$Tasks.show()
 	disable_phone_menu()
 
 # disables all items on the phone menu
 func disable_phone_menu():
-	for index in phone.get_item_count():
-		phone.set_item_disabled(index, true)
-		
+	map_button.disabled = true
+	tasks_button.disabled = true
+
+# disables mapp app access
 func disable_map_app():
 	allow_map = false
-	phone.set_item_disabled(0, true)
+	map_button.disabled = true
 
-# enbales all items on the phone menu
+# enables all items on the phone menu
+# if map button isn't allowed, only enable tasks
 func enable_phone_menu():
 	if allow_map:
-		for index in phone.get_item_count():
-			phone.set_item_disabled(index, false)
+		map_button.disabled = false
+		tasks_button.disabled = false
 	else:
-		phone.set_item_disabled(1, false)
+		map_button.disabled = true
+		tasks_button.disabled = false
 
+# enables map app access
 func enable_map_app():
 	allow_map = true
-	phone.set_item_disabled(0, false)
+	map_button.disabled = false
 	
 # closes tasks menu if the close button is pressed
 func _on_CloseTasksButton_pressed():
@@ -120,3 +128,7 @@ func _on_ConfirmationDialog_popup_hide():
 
 func _on_ConfirmationDialog_confirmed():
 	emit_signal("leave_location") # to be used to open the map
+
+
+
+

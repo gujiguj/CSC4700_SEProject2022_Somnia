@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/003.png-0a90c46d435c5db0c0b3f9d06c913cae.stex"
+path="res://.import/tasks icon.png-ebbdc2cb4fd074be26294fc9ef2da3db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://apps/003.png"
-dest_files=[ "res://.import/003.png-0a90c46d435c5db0c0b3f9d06c913cae.stex" ]
+source_file="res://phone assets/tasks icon.png"
+dest_files=[ "res://.import/tasks icon.png-ebbdc2cb4fd074be26294fc9ef2da3db.stex" ]
 
 [params]
 
