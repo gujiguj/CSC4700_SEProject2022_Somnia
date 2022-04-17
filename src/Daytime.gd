@@ -4,6 +4,8 @@ extends Control
 # var a = 2
 # var b = "text"
 
+var day_over = false
+
 # list of location nodes
 # ADD HALL!!
 onready var locations = [get_node("Dorm"), get_node("Library"), get_node("DiningHall")]
@@ -23,15 +25,21 @@ var curr_location = "Dorm"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for place in locations:
-		place.hide()
+	$PhoneMenu.add_task(8.0, "Homework")
+	$PhoneMenu.add_task(4.0, "Go to class")
 	$PhoneMenu.disable_map_app()
+	hide_places()
 	$DialogBox.queue_dialog("Where do you want to go?")
 	$Map.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+# clears the interface of a location interface
+func hide_places():
+	for place in locations:
+		place.hide()
 
 # goes to a location based on a signal from the map
 # queues up corresponding dialog
@@ -95,13 +103,12 @@ func go_to_map():
 	$PhoneMenu.disable_phone_menu()
 	$DialogBox.queue_dialog("You leave the " + $Map.selected_location + ".")
 	yield($DialogBox, "end_of_line")
-	for place in locations:
-		place.hide()
+	hide_places()
 	$Map.show()
 
 # shows choices after a queue of dialog ends
 func show_choices():
-	if !$Map.is_visible():
+	if !day_over and !$Map.is_visible():
 		yield($DialogBox, "end_of_line")
 		$PhoneMenu.enable_map_app()
 		$PhoneMenu.enable_phone_menu()
@@ -124,5 +131,9 @@ func _on_Dorm_end_day():
 	$ClockContainer.end_day()
 
 func _on_ClockContainer_day_over():
+	day_over = true
+	$Map.hide()
 	$DialogBox.clear_dialog()
 	$DialogBox.queue_dialog("That's all folks! It's time for bed now.")
+	hide_places()
+	$PhoneMenu.disable_phone_menu()

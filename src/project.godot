@@ -34,6 +34,10 @@ window/size/resizable=false
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
+[global]
+
+tooltip=false
+
 [input]
 
 ui_accept={
