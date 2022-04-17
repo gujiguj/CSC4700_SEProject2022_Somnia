@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dining hall hover.png-68fee5858868381abd2bdf81e6c755b4.stex"
+path="res://.import/library hover.png-8b9fd3e841e6884f4de674c6338d5771.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://locations/dining hall hover.png"
-dest_files=[ "res://.import/dining hall hover.png-68fee5858868381abd2bdf81e6c755b4.stex" ]
+source_file="res://locations buttons/library hover.png"
+dest_files=[ "res://.import/library hover.png-8b9fd3e841e6884f4de674c6338d5771.stex" ]
 
 [params]
 

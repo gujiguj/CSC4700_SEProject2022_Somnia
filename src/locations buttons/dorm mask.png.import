@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/dorm mask.png-412e9e75bb1c4a26cfd7638c13e98e6a.res"
+
+[deps]
+
+source_file="res://locations buttons/dorm mask.png"
+dest_files=[ "res://.import/dorm mask.png-412e9e75bb1c4a26cfd7638c13e98e6a.res" ]
+
+[params]
+
+create_from=1
+threshold=0.5

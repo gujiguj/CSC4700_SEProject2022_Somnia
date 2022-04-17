@@ -10,7 +10,7 @@ extends "res://Location.gd"
 # sets up choices
 func _ready():
 	flavor = [
-		"You walk into the Dining Hall",
+		"You walk into the Dining Hall.",
 		"You can always count on this place being jam packed with students at almost any hour.",
 		"What would you like to eat??"
 	]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/solo map.png-45faf63c9ed92f114e9afdd81410a9de.stex"
+path="res://.import/solo map.png-3be68a122a700e7fc1ff79d44efab0a8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://locations/solo map.png"
-dest_files=[ "res://.import/solo map.png-45faf63c9ed92f114e9afdd81410a9de.stex" ]
+source_file="res://locations buttons/solo map.png"
+dest_files=[ "res://.import/solo map.png-3be68a122a700e7fc1ff79d44efab0a8.stex" ]
 
 [params]
 

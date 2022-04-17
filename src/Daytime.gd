@@ -4,7 +4,22 @@ extends Control
 # var a = 2
 # var b = "text"
 
-onready var locations = [get_node("Library"), get_node("Dorm"), get_node("DiningHall")]
+# list of location nodes
+# ADD HALL!!
+onready var locations = [get_node("Dorm"), get_node("Library"), get_node("DiningHall")]
+
+# distance matrix of the time and energy cost to travel b/t locations
+# 0 = Dorm, 1 = Library, 2 = DiningHall, 3 = Hall
+# Should be a symmetric matrix.
+var distances = [
+	[0, 5, 15, 10],
+	[5, 0, 10, 10],
+	[15, 10, 0, 5],
+	[10, 10, 5, 0]
+]
+
+# keeps track of current location
+var curr_location = "Dorm"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,15 +38,31 @@ func _ready():
 func _on_Map_go_to_location(location):
 	$Map.hide()
 	$PhoneMenu.disable_phone_menu()
-	var selected = get_node(location)
-	selected.show()
-	for line in selected.get_flavor():
+	var selected_location = get_node(location)
+	print("Going to ", location, " from ", curr_location)
+	var i = 0
+	var j = 0
+	for place in locations:
+		if place.get_name() == curr_location:
+			break
+		i += 1
+	for place in locations:
+		if place.get_name() == location:
+			break
+		j += 1
+	decrease_energy(distances[i][j])
+	pass_time(distances[i][j]/60.0)
+	selected_location.show()
+	selected_location.hide_choices()
+	for line in selected_location.get_flavor():
 		$DialogBox.queue_dialog(line)
+	curr_location = location
 
 # input: float hours
 # subtracts time from tasks on the phone menu
 # passes time on the clock/timer
 func pass_time(hours):
+	print("passed ", hours, " hrs")
 	$PhoneMenu.subtract_time(hours)
 	$ClockContainer.pass_time(hours)
 

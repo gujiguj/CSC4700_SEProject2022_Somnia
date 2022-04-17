@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Location.tscn" type="PackedScene" id=1]
-[ext_resource path="res://images/librarybg.png" type="Texture" id=2]
+[ext_resource path="res://backgrounds/librarybg.png" type="Texture" id=2]
 [ext_resource path="res://Library.gd" type="Script" id=3]
 
 [node name="Library" instance=ExtResource( 1 )]

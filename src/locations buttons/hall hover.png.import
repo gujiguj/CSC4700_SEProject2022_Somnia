@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hall 2.png-a278c455df10c17fbf3cf046a3c6c11b.stex"
+path="res://.import/hall hover.png-773eb7c7311f10911f044a1502444d48.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://locations/hall 2.png"
-dest_files=[ "res://.import/hall 2.png-a278c455df10c17fbf3cf046a3c6c11b.stex" ]
+source_file="res://locations buttons/hall hover.png"
+dest_files=[ "res://.import/hall hover.png-773eb7c7311f10911f044a1502444d48.stex" ]
 
 [params]
 

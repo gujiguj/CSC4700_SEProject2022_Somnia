@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dorm hover.png-0c2270af402a520d302935fd89ea801a.stex"
+path="res://.import/dorm hover.png-4a4224d6fc0968929fb98bd27463b56f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://locations/dorm hover.png"
-dest_files=[ "res://.import/dorm hover.png-0c2270af402a520d302935fd89ea801a.stex" ]
+source_file="res://locations buttons/dorm hover.png"
+dest_files=[ "res://.import/dorm hover.png-4a4224d6fc0968929fb98bd27463b56f.stex" ]
 
 [params]
 

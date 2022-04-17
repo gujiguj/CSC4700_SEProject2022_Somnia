@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dining hall.png-a9b6d8c46f1238bab7845dc618b42607.stex"
+path="res://.import/hall 2.png-825a4672d2229c9d86fc3ab5768ac507.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://locations/dining hall.png"
-dest_files=[ "res://.import/dining hall.png-a9b6d8c46f1238bab7845dc618b42607.stex" ]
+source_file="res://locations buttons/hall 2.png"
+dest_files=[ "res://.import/hall 2.png-825a4672d2229c9d86fc3ab5768ac507.stex" ]
 
 [params]
 

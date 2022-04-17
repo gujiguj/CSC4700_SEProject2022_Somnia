@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dorm 4.png-b194aa11d9a0c2fbf33f3d604452c3c9.stex"
+path="res://.import/dining hall adjacent.png-6e34f01e3f27b7572466ac700468c410.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://locations/dorm 4.png"
-dest_files=[ "res://.import/dorm 4.png-b194aa11d9a0c2fbf33f3d604452c3c9.stex" ]
+source_file="res://locations buttons/dining hall adjacent.png"
+dest_files=[ "res://.import/dining hall adjacent.png-6e34f01e3f27b7572466ac700468c410.stex" ]
 
 [params]
 
