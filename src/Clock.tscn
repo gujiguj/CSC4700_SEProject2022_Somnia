@@ -25,24 +25,32 @@ margin_right = 237.0
 margin_bottom = 50.0
 custom_styles/panel = SubResource( 1 )
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+margin_right = 237.0
+margin_bottom = 50.0
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 237.0
+margin_bottom = 24.0
+text = "Hours left"
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 237.0
 margin_bottom = 50.0
-custom_constants/margin_right = 18
-custom_constants/margin_left = 18
+custom_constants/margin_right = 40
+custom_constants/margin_left = 90
 
 [node name="ClockText" type="Label" parent="MarginContainer"]
-margin_left = 18.0
+margin_left = 90.0
 margin_top = 3.0
-margin_right = 219.0
+margin_right = 197.0
 margin_bottom = 46.0
+size_flags_horizontal = 5
 custom_fonts/font = SubResource( 2 )
 text = "0"
-align = 1
-
-[node name="Label" type="Label" parent="MarginContainer/ClockText"]
-margin_top = 6.0
-margin_right = 63.0
-margin_bottom = 20.0
-text = "Hours left"
-align = 1
+clip_text = true
+percent_visible = 4.0

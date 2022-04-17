@@ -13,6 +13,8 @@ signal day_over
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	clock.text = "8"
+	clock.visible_characters = 4
+	clock.ALIGN_CENTER
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # func _process(delta):
