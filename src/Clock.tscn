@@ -53,4 +53,3 @@ size_flags_horizontal = 5
 custom_fonts/font = SubResource( 2 )
 text = "0"
 clip_text = true
-percent_visible = 4.0

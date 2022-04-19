@@ -7,8 +7,7 @@ extends Control
 var day_over = false
 
 # list of location nodes
-# ADD HALL!!
-onready var locations = [get_node("Dorm"), get_node("Library"), get_node("DiningHall")]
+onready var locations = [get_node("Dorm"), get_node("Library"), get_node("DiningHall"), get_node("Hall")]
 
 # distance matrix of the time and energy cost to travel b/t locations
 # 0 = Dorm, 1 = Library, 2 = DiningHall, 3 = Hall
@@ -128,6 +127,7 @@ func play_choice_dialog(dialog):
 		$DialogBox.queue_dialog(line)
 
 func _on_Dorm_end_day():
+	yield($DialogBox, "end_of_line")
 	$ClockContainer.end_day()
 
 func _on_ClockContainer_day_over():

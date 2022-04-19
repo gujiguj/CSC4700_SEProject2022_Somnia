@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://StatsBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Clock.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Daytime.gd" type="Script" id=7]
 [ext_resource path="res://Dorm.tscn" type="PackedScene" id=8]
 [ext_resource path="res://DiningHall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Hall.tscn" type="PackedScene" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.231373, 0.333333, 0.615686, 1 )
@@ -32,6 +33,9 @@ visible = false
 visible = false
 
 [node name="DiningHall" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="Hall" parent="." instance=ExtResource( 10 )]
 visible = false
 
 [node name="DialogBox" parent="." instance=ExtResource( 4 )]
@@ -80,6 +84,16 @@ margin_bottom = 238.0
 [connection signal="lost_stress" from="DiningHall" to="." method="decrease_stress"]
 [connection signal="passed_time" from="DiningHall" to="." method="pass_time"]
 [connection signal="queued_dialog" from="DiningHall" to="." method="play_choice_dialog"]
+[connection signal="completed_task" from="Hall" to="." method="complete_task"]
+[connection signal="gained_energy" from="Hall" to="." method="increase_energy"]
+[connection signal="gained_happiness" from="Hall" to="." method="increase_happiness"]
+[connection signal="gained_stress" from="Hall" to="." method="increase_stress"]
+[connection signal="leave_location" from="Hall" to="." method="go_to_map"]
+[connection signal="lost_energy" from="Hall" to="." method="decrease_energy"]
+[connection signal="lost_happiness" from="Hall" to="." method="decrease_happiness"]
+[connection signal="lost_stress" from="Hall" to="." method="decrease_stress"]
+[connection signal="passed_time" from="Hall" to="." method="pass_time"]
+[connection signal="queued_dialog" from="Hall" to="." method="play_choice_dialog"]
 [connection signal="queue_finished" from="DialogBox" to="." method="show_choices"]
 [connection signal="day_over" from="ClockContainer" to="." method="_on_ClockContainer_day_over"]
 [connection signal="leave_location" from="PhoneMenu" to="." method="go_to_map"]
