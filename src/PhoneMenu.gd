@@ -13,8 +13,8 @@ var allow_map = false
 # to be used to open the map
 signal leave_location 
 # to be used by stats system
-signal task_completed 
-signal task_missed
+signal task_completed(stress) 
+signal task_missed(stress)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -80,6 +80,14 @@ func _on_CloseTasksButton_pressed():
 func add_task(time_left, task):
 	task_list.add_item(str(time_left))
 	task_list.add_item(task)
+	
+# returns the time left on a given task
+func get_time_left(task):
+	for index in task_list.get_item_count():
+		if task_list.get_item_text(index) == task:
+			print("getting time left on: " + task_list.get_item_text(index))
+			return float(task_list.get_item_text(index-1))
+	return 0.0
 
 # input: string
 # searches for the corresponding task by the string and removes it	
@@ -94,7 +102,7 @@ func complete_task(task):
 			break
 	if remove_queue.empty() == false:
 		for index in remove_queue:
-			emit_signal("task_completed")
+			emit_signal("task_completed", 15)
 			task_list.remove_item(index)
 	
 # input: float
@@ -116,7 +124,7 @@ func subtract_time(time):
 	if remove_queue.empty() == false:
 		for index in remove_queue:
 			task_list.remove_item(index)
-			emit_signal("task_missed") # to be used by stats system
+			emit_signal("task_missed", 15) # to be used by stats system
 		
 # func formatTime(time):
 	# converts a float value of hours to a format of H:M

@@ -10,6 +10,9 @@ onready var clock = $MarginContainer/ClockText
 # signal emitted when the clock is 0
 signal day_over
 
+# for tasks
+signal passed_time(hours)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	clock.text = "8"
@@ -29,9 +32,11 @@ func pass_time(hours):
 	var curr_time = float(clock.text)
 	var new_time = curr_time - hours
 	clock.text = str(new_time)
+	emit_signal("passed_time", hours)
 	if new_time <= 0:
 		emit_signal("day_over")
 	
+# passes the amount of time left on the clock
 func end_day():
 	pass_time(float(clock.text))
 

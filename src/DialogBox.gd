@@ -110,3 +110,7 @@ func change_state(next_state):
 			print("Changing state to: State.READING")
 		State.FINISHED:
 			print("Changing state to: State.FINISHED")
+
+func queue_dialog_list(dialog):
+	for line in dialog:
+		queue_dialog(line)
