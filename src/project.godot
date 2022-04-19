@@ -24,6 +24,10 @@ config/name="SEProject2022 Somnia"
 run/main_scene="res://Daytime.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Daytime="*res://Daytime.tscn"
+
 [display]
 
 window/size/width=1200

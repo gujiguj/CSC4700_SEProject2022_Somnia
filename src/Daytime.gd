@@ -98,29 +98,31 @@ func show_choices():
 
 func _on_ClockContainer_day_over():
 	day_over = true
-	yield($DialogBox, "end_of_line")
 	$DialogBox.clear_dialog()
-	$DialogBox.queue_dialog("That's all folks! It's time for bed now.")
-	$Map.hide()
-	hide_places()
-	$Dorm.hide_choices()
-	$Dorm.show()
-	$PhoneMenu.disable_phone_menu()
-	
-#func _on_PhoneMenu_task_completed():
-#	decrease_stress(15)
-	
-#func _on_PhoneMenu_task_missed():
-#	increase_stress(15)
+	$DialogBox.queue_dialog("It's getting late. You head back to your dorm.")
+	end_day()
 
 func _on_StatsBox_energy_zero():
 	day_over = true
 	$DialogBox.clear_dialog()
 	$DialogBox.queue_dialog("You feel pooped. Let's go back to your dorm.")
+	end_day()
+	
+func end_day():
 	yield($DialogBox, "end_of_line")
 	$Map.hide()
 	hide_places()
-	$DialogBox.queue_dialog("That's all folks! It's time for bed now.")
 	$Dorm.hide_choices()
 	$Dorm.show()
 	$PhoneMenu.disable_phone_menu()
+	$DialogBox.queue_dialog("That's all folks! It's time for bed now.")
+
+# used for nighttime
+func get_stats():
+	var stats = [
+		$StatsBox.energy,
+		$StatsBox.stress,
+		$StatsBox.happiness
+	]
+	return stats
+	
