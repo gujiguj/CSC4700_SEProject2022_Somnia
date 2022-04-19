@@ -97,3 +97,5 @@ margin_bottom = 238.0
 [connection signal="queue_finished" from="DialogBox" to="." method="show_choices"]
 [connection signal="day_over" from="ClockContainer" to="." method="_on_ClockContainer_day_over"]
 [connection signal="leave_location" from="PhoneMenu" to="." method="go_to_map"]
+[connection signal="task_completed" from="PhoneMenu" to="." method="_on_PhoneMenu_task_completed"]
+[connection signal="task_missed" from="PhoneMenu" to="." method="_on_PhoneMenu_task_missed"]

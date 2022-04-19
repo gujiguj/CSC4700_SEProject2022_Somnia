@@ -137,3 +137,9 @@ func _on_ClockContainer_day_over():
 	$DialogBox.queue_dialog("That's all folks! It's time for bed now.")
 	hide_places()
 	$PhoneMenu.disable_phone_menu()
+	
+func _on_PhoneMenu_task_completed():
+	decrease_stress(15)
+	
+func _on_PhoneMenu_task_missed():
+	increase_stress(15)
