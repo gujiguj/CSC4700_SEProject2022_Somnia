@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Clock.gd" type="Script" id=2]
+[ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.231373, 0.333333, 0.615686, 1 )
@@ -11,9 +11,12 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 0.168627, 0.239216, 0.447059, 1 )
 
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
 [sub_resource type="DynamicFont" id=2]
-size = 36
-font_data = ExtResource( 1 )
+size = 38
+font_data = ExtResource( 3 )
 
 [node name="ClockContainer" type="MarginContainer"]
 margin_right = 237.0
@@ -28,15 +31,17 @@ custom_styles/panel = SubResource( 1 )
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 margin_right = 237.0
 margin_bottom = 50.0
+custom_constants/margin_top = 0
 custom_constants/margin_left = 15
-custom_constants/margin_bottom = 15
 
 [node name="Label" type="Label" parent="MarginContainer2"]
 margin_left = 15.0
-margin_top = 10.0
+margin_top = 6.0
 margin_right = 237.0
-margin_bottom = 24.0
-text = "Hours left"
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 3 )
+text = "Hours 
+left"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 237.0
@@ -46,9 +51,9 @@ custom_constants/margin_left = 90
 
 [node name="ClockText" type="Label" parent="MarginContainer"]
 margin_left = 90.0
-margin_top = 3.0
+margin_top = 5.0
 margin_right = 197.0
-margin_bottom = 46.0
+margin_bottom = 44.0
 size_flags_horizontal = 5
 custom_fonts/font = SubResource( 2 )
 text = "0"
