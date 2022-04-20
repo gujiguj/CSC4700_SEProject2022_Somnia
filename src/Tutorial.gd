@@ -7,7 +7,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	OS.set_window_size(Vector2(720,500))
+	OS.set_window_size(Vector2(730,500))
 	$TutorialSong.play()
 	$HP.text = "Health: " + str($Player.player_health)
 	
