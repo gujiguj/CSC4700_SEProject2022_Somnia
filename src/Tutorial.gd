@@ -19,13 +19,10 @@ func _ready():
 
 
 func _on_TutorialSong_finished():
-	Global.player_health = get_player_health()
+	Global.player_health = $Player.player_health
 	get_tree().change_scene("res://Daytime.tscn")
 	print("???")
 
 
 func _on_Player_hit():
 	$HP.text = "Health: " + str($Player.player_health)
-	
-func get_player_health():
-	return $Player.player_health

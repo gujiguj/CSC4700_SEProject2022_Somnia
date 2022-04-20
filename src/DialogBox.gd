@@ -51,11 +51,11 @@ func _process(_delta):
 				$Tween.remove_all()
 				end_symbol.text = END_TEXT
 				change_state(State.FINISHED)
-				emit_signal("end_of_line")
 		# if done reading, enter key can be pressed to bring the box back to the ready state
 		State.FINISHED:
 			if Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
+				emit_signal("end_of_line")
 
 # queue up dialog
 func queue_dialog(next_text):

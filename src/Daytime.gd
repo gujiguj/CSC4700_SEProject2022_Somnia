@@ -120,7 +120,10 @@ func end_day():
 	$Dorm.hide_choices()
 	$Dorm.show()
 	$PhoneMenu.disable_phone_menu()
+	$PhoneMenu.miss_all_tasks()
 	$DialogBox.queue_dialog("That's all folks! It's time for bed now.")
+	yield($DialogBox, "end_of_line")
+	get_tree().change_scene("res://NightTerror.tscn")
 
 # used for nighttime
 func get_stats():

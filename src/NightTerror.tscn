@@ -3,7 +3,7 @@
 [ext_resource path="res://LeftArrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sounds/My_Song_36.wav" type="AudioStream" id=3]
-[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://NightTerror.gd" type="Script" id=4]
 [ext_resource path="res://RightArrow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UpArrow.tscn" type="PackedScene" id=7]
@@ -577,6 +577,5 @@ margin_bottom = 375.0
 align = 3
 script = SubResource( 1 )
 
-[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="hit" from="Player" to="HP" method="_on_Player_hit"]
 [connection signal="finished" from="TutorialSong" to="." method="_on_TutorialSong_finished"]

@@ -68,6 +68,7 @@ func _on_Choice2_pressed():
 		"You add your own little doodle on the board.",
 		"Nothing too conspicusus."
 	]
+	choice2.disabled = true
 	emit_signal("queued_dialog", dialog)
 	emit_signal("passed_time", 5/60)
 	

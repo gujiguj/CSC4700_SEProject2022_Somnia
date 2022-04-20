@@ -153,6 +153,13 @@ func _on_ConfirmationDialog_popup_hide():
 func _on_ConfirmationDialog_confirmed():
 	emit_signal("leave_location") # to be used to open the map
 
-
-
+# only called at the end of the day
+func miss_all_tasks():
+	for index in task_list.get_item_count():
+		if index % 2 == 0:
+			var time_left = task_list.get_item_text(index)
+			# if the task is not completed or missed
+			if time_left != "completed" and time_left != "missed":
+				task_list.set_item_text(index, "missed")
+				emit_signal("task_missed", 15)
 
