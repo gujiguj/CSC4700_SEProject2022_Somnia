@@ -92,18 +92,22 @@ func get_time_left(task):
 # input: string
 # searches for the corresponding task by the string and removes it	
 # emits a signal to be used by the stats system
-# THIS MUST BE CALLED BEFORE subtractTime!!!!
+# THIS MUST BE CALLED BEFORE subtract_time!!!!
 func complete_task(task):
-	var remove_queue = []
 	for index in task_list.get_item_count():
 		if task_list.get_item_text(index) == task:
-			remove_queue.push_front(index-1)
-			remove_queue.push_front(index)
-			break
-	if remove_queue.empty() == false:
-		for index in remove_queue:
+			task_list.set_item_text(index-1, "completed")
 			emit_signal("task_completed", 15)
-			task_list.remove_item(index)
+#	var remove_queue = []
+#	for index in task_list.get_item_count():
+#		if task_list.get_item_text(index) == task:
+#			remove_queue.push_front(index-1)
+#			remove_queue.push_front(index)
+#			break
+#	if remove_queue.empty() == false:
+#		for index in remove_queue:
+#			emit_signal("task_completed", 15)
+#			task_list.remove_item(index)
 	
 # input: float
 # subtracts time from each of the tasks
@@ -112,19 +116,22 @@ func subtract_time(time):
 	var remove_queue = []
 	for index in task_list.get_item_count():
 		if index % 2 == 0:
-			print("Subtracting ", time, " hours from ", index)
-			var text = float(task_list.get_item_text(index))
-			print("Current time left: ", str(text))
-			text -= time
-			task_list.set_item_text(index, str(text)) 
-			print("New time left: ", task_list.get_item_text(index))
-			if text <= 0:
-				remove_queue.push_front(index)
-				remove_queue.push_front(index+1)
-	if remove_queue.empty() == false:
-		for index in remove_queue:
-			task_list.remove_item(index)
-			emit_signal("task_missed", 15) # to be used by stats system
+			if task_list.get_item_text(index) != "completed" && task_list.get_item_text(index) != "missed":
+				print("Subtracting ", time, " hours from ", index)
+				var text = float(task_list.get_item_text(index))
+				print("Current time left: ", str(text))
+				text -= time
+				task_list.set_item_text(index, str(text)) 
+				print("New time left: ", task_list.get_item_text(index))
+				if text <= 0:
+					task_list.set_item_text(index, "missed")
+					emit_signal("task_missed", 15)
+#					remove_queue.push_front(index)
+#					remove_queue.push_front(index+1)
+#	if remove_queue.empty() == false:
+#		for index in remove_queue:
+#			task_list.remove_item(index)
+#			emit_signal("task_missed", 15) # to be used by stats system
 		
 # func formatTime(time):
 	# converts a float value of hours to a format of H:M
