@@ -10,6 +10,9 @@ onready var choice_leave = $Background/ChoicesContainer/VBoxContainer/Leave
 # flavor text dialog array to be queued
 onready var flavor = []
 
+# to hold npc sprite nodes
+onready var npcs = []
+
 # to be used to open up the map
 signal leave_location
 
@@ -71,3 +74,7 @@ func show_choices():
 # returns the flavor text
 func get_flavor():
 	return flavor
+	
+func hide_npcs():
+	for sprite in npcs:
+		sprite.hide()

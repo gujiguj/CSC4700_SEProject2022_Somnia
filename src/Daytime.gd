@@ -101,6 +101,7 @@ func show_choices():
 		$PhoneMenu.enable_map_app()
 		$PhoneMenu.enable_phone_menu()
 		get_node(curr_location).show_choices()
+		get_node(curr_location).hide_npcs()
 
 func _on_ClockContainer_day_over():
 	day_over = true
