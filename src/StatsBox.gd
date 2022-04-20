@@ -31,6 +31,17 @@ func decrease_stress(percent):
 func decrease_happiness(percent):
 	happiness.value -= percent
 	
+func calc_energy_from_night(accuracy):
+	if accuracy > 50 and accuracy < 95:
+		accuracy - 50
+		var add_to_energy = accuracy/45
+		add_to_energy *= 75
+		energy = 25 + add_to_energy
+	elif accuracy >= 50:
+		energy = 25
+	else:
+		energy = 100
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	energy.value = 100
