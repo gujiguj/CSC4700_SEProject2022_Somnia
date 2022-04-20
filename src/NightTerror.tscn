@@ -577,5 +577,5 @@ margin_bottom = 375.0
 align = 3
 script = SubResource( 1 )
 
-[connection signal="hit" from="Player" to="HP" method="_on_Player_hit"]
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="finished" from="TutorialSong" to="." method="_on_TutorialSong_finished"]
