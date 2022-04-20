@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tutorial-songgggg-with-a-dash-of-drums.mp3-a6c3bb5ca77fbf0628b2cd58c526dfde.mp3str"
+
+[deps]
+
+source_file="res://Sounds/tutorial-songgggg-with-a-dash-of-drums.mp3"
+dest_files=[ "res://.import/tutorial-songgggg-with-a-dash-of-drums.mp3-a6c3bb5ca77fbf0628b2cd58c526dfde.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Art/heart.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/mixkit-small-hit-in-a-game-2072.wav" type="AudioStream" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 11.1249
+height = 14.2092
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 9.90161
+height = 17.7218
+
+[node name="Player" type="Area2D" groups=["Bodies"]]
+position = Vector2( 358, 237 )
+scale = Vector2( 1.26, 1.26 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -6.406, -1.851 )
+rotation = -0.764454
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 4.694, -1.54 )
+rotation = 0.671952
+shape = SubResource( 3 )
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
