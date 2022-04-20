@@ -1,0 +1,582 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://LeftArrow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/My_Song_36.wav" type="AudioStream" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://RightArrow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UpArrow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://DownArrow.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Art/buh.png" type="Texture" id=9]
+[ext_resource path="res://Sounds/heartbeat-04.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Art/veins.png" type="Texture" id=11]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Label
+
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="NightSection" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
+
+[node name="Veins" type="Sprite" parent="."]
+position = Vector2( 363.5, 243 )
+scale = Vector2( 0.630833, 0.6425 )
+z_index = 2
+texture = ExtResource( 11 )
+
+[node name="Dark" type="Sprite" parent="."]
+position = Vector2( 368, 246 )
+scale = Vector2( 0.625417, 0.635 )
+z_index = 2
+texture = ExtResource( 9 )
+
+[node name="LeftArrow" parent="." instance=ExtResource( 1 )]
+position = Vector2( 329, -1811 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Heartbeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -3.496
+
+[node name="TutorialSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -1.001
+
+[node name="StartPosition" type="Position2D" parent="."]
+
+[node name="LeftArrow2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 193, -2357 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="LeftArrow3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 198, -1022 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow" parent="." instance=ExtResource( 5 )]
+position = Vector2( 464, -684 )
+
+[node name="UpArrow" parent="." instance=ExtResource( 7 )]
+position = Vector2( 576, -1373 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="DownArrow" parent="." instance=ExtResource( 8 )]
+position = Vector2( 343, -322 )
+
+[node name="DownArrow2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 461, -1681 )
+
+[node name="RightArrow2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 112, -1982 )
+
+[node name="UpArrow2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 484, -2157 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 408, -2464 )
+
+[node name="UpArrow3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 192, -2582 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="DownArrow3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 556, -2759 )
+
+[node name="LeftArrow4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 437, -2902 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="UpArrow4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 622, -3009 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 272, -3095 )
+
+[node name="DownArrow4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 78, -3256 )
+
+[node name="LeftArrow5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 307, -3380 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 464, -3471 )
+
+[node name="UpArrow5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 150, -3592 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 252, -3636 )
+
+[node name="RightArrow7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 349, -3704 )
+
+[node name="LeftArrow6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 647, -3793 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="DownArrow5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 495, -3904 )
+
+[node name="LeftArrow7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 598, -4006 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 680, -4168 )
+
+[node name="UpArrow6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 459, -4236 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="DownArrow6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 240, -4308 )
+
+[node name="LeftArrow8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 329, -4394 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 83, -4443 )
+
+[node name="LeftArrow9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 498, -4548 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="UpArrow7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 628, -4634 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="DownArrow7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 404, -4737 )
+
+[node name="UpArrow8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 481, -4760 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 177, -4846 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="DownArrow8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 64, -4916 )
+
+[node name="UpArrow9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 255, -4951 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 355, -4987 )
+
+[node name="UpArrow10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 456, -5022 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 545, -5060 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="UpArrow11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 648, -5178 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 352, -5206 )
+
+[node name="DownArrow9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 550, -5256 )
+
+[node name="LeftArrow12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 57, -5324 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="DownArrow10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 190, -5364 )
+
+[node name="UpArrow12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 305, -5447 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow12" parent="." instance=ExtResource( 5 )]
+position = Vector2( 402, -5476 )
+
+[node name="DownArrow11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 227, -5534 )
+
+[node name="LeftArrow13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, -5609 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow13" parent="." instance=ExtResource( 5 )]
+position = Vector2( 583, -5653 )
+
+[node name="LeftArrow14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 97, -5680 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="DownArrow12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 333, -5723 )
+
+[node name="UpArrow13" parent="." instance=ExtResource( 7 )]
+position = Vector2( 421, -5770 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow14" parent="." instance=ExtResource( 5 )]
+position = Vector2( 538, -5797 )
+
+[node name="UpArrow14" parent="." instance=ExtResource( 7 )]
+position = Vector2( 635, -5823 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="DownArrow13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 135, -5912 )
+
+[node name="UpArrow15" parent="." instance=ExtResource( 7 )]
+position = Vector2( 239, -5945 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, -6035 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow15" parent="." instance=ExtResource( 5 )]
+position = Vector2( 637, -6077 )
+
+[node name="UpArrow16" parent="." instance=ExtResource( 7 )]
+position = Vector2( 360, -6158 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow16" parent="." instance=ExtResource( 5 )]
+position = Vector2( 110, -6248 )
+
+[node name="DownArrow14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 267, -6314 )
+
+[node name="LeftArrow16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 393, -6390 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="UpArrow17" parent="." instance=ExtResource( 7 )]
+position = Vector2( 549, -6434 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow17" parent="." instance=ExtResource( 5 )]
+position = Vector2( 209, -6542 )
+
+[node name="LeftArrow17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 330, -6585 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="DownArrow15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 539, -6671 )
+
+[node name="LeftArrow18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 438, -6754 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="UpArrow18" parent="." instance=ExtResource( 7 )]
+position = Vector2( 108, -6864 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow18" parent="." instance=ExtResource( 5 )]
+position = Vector2( 324, -6894 )
+
+[node name="UpArrow19" parent="." instance=ExtResource( 7 )]
+position = Vector2( 448, -6942 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 222, -7037 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow19" parent="." instance=ExtResource( 5 )]
+position = Vector2( 395, -7071 )
+
+[node name="DownArrow16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 318, -7098 )
+
+[node name="UpArrow20" parent="." instance=ExtResource( 7 )]
+position = Vector2( 546, -7136 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="DownArrow17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 364, -7244 )
+
+[node name="LeftArrow20" parent="." instance=ExtResource( 1 )]
+position = Vector2( 143, -7344 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow20" parent="." instance=ExtResource( 5 )]
+position = Vector2( 233, -7378 )
+
+[node name="LeftArrow21" parent="." instance=ExtResource( 1 )]
+position = Vector2( 145, -7423 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="UpArrow21" parent="." instance=ExtResource( 7 )]
+position = Vector2( 441, -7466 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="DownArrow18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 531, -7538 )
+
+[node name="RightArrow21" parent="." instance=ExtResource( 5 )]
+position = Vector2( 605, -7579 )
+
+[node name="DownArrow19" parent="." instance=ExtResource( 8 )]
+position = Vector2( 359, -7616 )
+
+[node name="UpArrow22" parent="." instance=ExtResource( 7 )]
+position = Vector2( 196, -7798 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow22" parent="." instance=ExtResource( 1 )]
+position = Vector2( 112, -7735 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="UpArrow23" parent="." instance=ExtResource( 7 )]
+position = Vector2( 272, -7819 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="RightArrow22" parent="." instance=ExtResource( 5 )]
+position = Vector2( 675, -7871 )
+
+[node name="RightArrow23" parent="." instance=ExtResource( 5 )]
+position = Vector2( 522, -7939 )
+
+[node name="DownArrow20" parent="." instance=ExtResource( 8 )]
+position = Vector2( 427, -7979 )
+
+[node name="LeftArrow23" parent="." instance=ExtResource( 1 )]
+position = Vector2( 70, -8003 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="LeftArrow24" parent="." instance=ExtResource( 1 )]
+position = Vector2( 154, -8047 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow24" parent="." instance=ExtResource( 5 )]
+position = Vector2( 239, -8089 )
+
+[node name="DownArrow21" parent="." instance=ExtResource( 8 )]
+position = Vector2( 446, -8130 )
+
+[node name="RightArrow25" parent="." instance=ExtResource( 5 )]
+position = Vector2( 382, -8179 )
+
+[node name="DownArrow22" parent="." instance=ExtResource( 8 )]
+position = Vector2( 589, -8211 )
+
+[node name="UpArrow24" parent="." instance=ExtResource( 7 )]
+position = Vector2( 183, -8237 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow25" parent="." instance=ExtResource( 1 )]
+position = Vector2( 386, -8331 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="UpArrow25" parent="." instance=ExtResource( 7 )]
+position = Vector2( 479, -8388 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow26" parent="." instance=ExtResource( 1 )]
+position = Vector2( 658, -8502 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow26" parent="." instance=ExtResource( 5 )]
+position = Vector2( 77, -8533 )
+
+[node name="UpArrow26" parent="." instance=ExtResource( 7 )]
+position = Vector2( 211, -8576 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="DownArrow23" parent="." instance=ExtResource( 8 )]
+position = Vector2( 348, -8640 )
+
+[node name="UpArrow27" parent="." instance=ExtResource( 7 )]
+position = Vector2( 258, -8687 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow27" parent="." instance=ExtResource( 1 )]
+position = Vector2( 529, -8736 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow27" parent="." instance=ExtResource( 5 )]
+position = Vector2( 294, -8825 )
+
+[node name="DownArrow24" parent="." instance=ExtResource( 8 )]
+position = Vector2( 473, -8927 )
+
+[node name="UpArrow28" parent="." instance=ExtResource( 7 )]
+position = Vector2( 227, -8959 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow28" parent="." instance=ExtResource( 1 )]
+position = Vector2( 124, -9046 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="DownArrow25" parent="." instance=ExtResource( 8 )]
+position = Vector2( 392, -9137 )
+
+[node name="UpArrow29" parent="." instance=ExtResource( 7 )]
+position = Vector2( 490, -9225 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="LeftArrow29" parent="." instance=ExtResource( 1 )]
+position = Vector2( 84, -9267 )
+z_index = 1
+collision_layer = 3
+collision_mask = 2
+mass = 0.0469388
+
+[node name="RightArrow28" parent="." instance=ExtResource( 5 )]
+position = Vector2( 172, -9350 )
+
+[node name="UpArrow30" parent="." instance=ExtResource( 7 )]
+position = Vector2( 272, -9416 )
+mode = 1
+gravity_scale = 0.0
+
+[node name="HP" type="Label" parent="."]
+anchor_right = 0.459
+anchor_bottom = 0.25
+margin_left = 642.0
+margin_top = 474.0
+margin_right = 392.52
+margin_bottom = 375.0
+align = 3
+script = SubResource( 1 )
+
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="hit" from="Player" to="HP" method="_on_Player_hit"]
+[connection signal="finished" from="TutorialSong" to="." method="_on_TutorialSong_finished"]
