@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Location.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Dorm.gd" type="Script" id=2]
-[ext_resource path="res://backgrounds/dorm_room_stock.jpg" type="Texture" id=3]
+[ext_resource path="res://backgrounds/dormdaybg.png" type="Texture" id=3]
 
 [node name="Dorm" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

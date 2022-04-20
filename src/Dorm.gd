@@ -49,6 +49,7 @@ func _on_Choice3_pressed():
 	$Background/EndDayConfirmation.popup()
 	yield($Background/EndDayConfirmation, "confirmed")
 	hide_choices()
+	$Background.set_texture(load("res://backgrounds/dormnightbg.png"))
 	var dialog = [
 		"You don't leave your dorm for the rest of the day."
 	]
