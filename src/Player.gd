@@ -29,8 +29,8 @@ func _process(delta):
 		movement = movement.normalized() * player_speed
 		
 	position += movement * delta
-	position.x = clamp(position.x, 25, screen_size.x-25)
-	position.y = clamp(position.y, 25, screen_size.y-20)
+	position.x = clamp(position.x, 25, 720-15)
+	position.y = clamp(position.y, 25, 500-20)
 	
 func _on_Player_body_entered(body):
 	$HitSound.play()

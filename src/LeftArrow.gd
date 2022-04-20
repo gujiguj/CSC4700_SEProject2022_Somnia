@@ -11,6 +11,3 @@ func _physics_process(delta):
 	translate(movement)
 
 
-
-func _on_LeftArrow_area_entered(area):
-	print("Hit")

@@ -26,8 +26,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Daytime="*res://Daytime.tscn"
-Tutorial="*res://Tutorial.tscn"
+Global="*res://Global.gd"
 
 [display]
 

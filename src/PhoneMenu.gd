@@ -120,7 +120,7 @@ func complete_task(task):
 # subtracts time from each of the tasks
 # emits a signal if any task runs out of time to be used by stats system
 func subtract_time(time):
-	var remove_queue = []
+	# var remove_queue = []
 	for index in task_list.get_item_count():
 		if index % 2 == 0:
 			var time_left = task_list.get_item_text(index)
