@@ -1,5 +1,9 @@
 extends Control
 
+# uncomment this when tutorial is added as a global node
+# var tutorial = get_node(/root/Tutorial)
+# var accuracy = tutorial.accuracy
+
 # list of location nodes
 onready var locations = [
 	get_node("Dorm"), 
@@ -41,6 +45,8 @@ signal time_until_class(hours)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# implement energy function for stats
+	# $StatsBox.calc_energy_from_night(accuracy)
 	$PhoneMenu.add_task(8.0, "Homework")
 	$PhoneMenu.add_task(4.0, "Go to class")
 	$PhoneMenu.disable_map_app()
