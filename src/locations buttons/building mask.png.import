@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/building mask.png-0e1164287982615095b06f8245623624.res"
+
+[deps]
+
+source_file="res://locations buttons/building mask.png"
+dest_files=[ "res://.import/building mask.png-0e1164287982615095b06f8245623624.res" ]
+
+[params]
+
+create_from=1
+threshold=0.5
