@@ -33,7 +33,7 @@ func decrease_happiness(percent):
 	
 func calc_energy_from_night(accuracy):
 	if accuracy > 50 and accuracy < 95:
-		accuracy - 50
+		accuracy -= 50
 		var add_to_energy = accuracy/45
 		add_to_energy *= 75
 		energy = 25 + add_to_energy

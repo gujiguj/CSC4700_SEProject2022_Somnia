@@ -105,7 +105,7 @@ func show_choices():
 func _on_ClockContainer_day_over():
 	day_over = true
 	$DialogBox.clear_dialog()
-	$DialogBox.queue_dialog("It's getting late. You head back to your dorm.")
+	$DialogBox.queue_dialog("It's getting late. You start getting ready for bed.")
 	end_day()
 
 func _on_StatsBox_energy_zero():

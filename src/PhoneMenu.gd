@@ -84,10 +84,17 @@ func add_task(time_left, task):
 # returns the time left on a given task
 func get_time_left(task):
 	for index in task_list.get_item_count():
-		if task_list.get_item_text(index) == task:
-			print("getting time left on: " + task_list.get_item_text(index))
-			return float(task_list.get_item_text(index-1))
-	return 0.0
+		var task_name = task_list.get_item_text(index)
+		if task_name == task:
+			print("getting time left on: " + task_name)
+			var time_left = task_list.get_item_text(index-1)
+			match time_left:
+				"completed":
+					return "completed"
+				"missed":
+					return "missed"
+				_:
+					return float(time_left)
 
 # input: string
 # searches for the corresponding task by the string and removes it	
@@ -116,14 +123,16 @@ func subtract_time(time):
 	var remove_queue = []
 	for index in task_list.get_item_count():
 		if index % 2 == 0:
-			if task_list.get_item_text(index) != "completed" && task_list.get_item_text(index) != "missed":
+			var time_left = task_list.get_item_text(index)
+			# if the task is not completed or missed
+			if time_left != "completed" and time_left != "missed":
 				print("Subtracting ", time, " hours from ", index)
-				var text = float(task_list.get_item_text(index))
-				print("Current time left: ", str(text))
-				text -= time
-				task_list.set_item_text(index, str(text)) 
+				time_left = float(time_left)
+				print("Current time left: ", str(time_left))
+				time_left -= float(time)
+				task_list.set_item_text(index, str(time_left)) 
 				print("New time left: ", task_list.get_item_text(index))
-				if text <= 0:
+				if time_left <= 0:
 					task_list.set_item_text(index, "missed")
 					emit_signal("task_missed", 15)
 #					remove_queue.push_front(index)

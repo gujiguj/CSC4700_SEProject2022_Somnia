@@ -9,3 +9,16 @@ script = ExtResource( 3 )
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource( 2 )
+
+[node name="Choice1" parent="Background/ChoicesContainer/VBoxContainer" index="0"]
+margin_bottom = 95.0
+
+[node name="Choice2" parent="Background/ChoicesContainer/VBoxContainer" index="1"]
+margin_top = 102.0
+margin_bottom = 197.0
+
+[node name="Choice3" parent="Background/ChoicesContainer/VBoxContainer" index="2"]
+visible = false
+
+[node name="Leave" parent="Background/ChoicesContainer/VBoxContainer" index="3"]
+margin_top = 204.0
