@@ -39,6 +39,8 @@ visible = false
 visible = false
 
 [node name="DialogBox" parent="." instance=ExtResource( 4 )]
+margin_top = 802.0
+margin_bottom = 802.0
 
 [node name="StatsBox" parent="." instance=ExtResource( 1 )]
 

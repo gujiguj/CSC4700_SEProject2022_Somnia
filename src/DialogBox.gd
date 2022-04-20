@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 # no I do not know what this means exactly
 # smaller number is faster apparently.

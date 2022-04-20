@@ -15,8 +15,15 @@ border_color = Color( 0.168627, 0.239216, 0.447059, 1 )
 size = 47
 font_data = ExtResource( 1 )
 
-[node name="DialogBox" type="CanvasLayer"]
+[node name="DialogBox" type="Control"]
+margin_left = 601.0
+margin_top = 809.0
+margin_right = 601.0
+margin_bottom = 809.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="DialogBoxContainer" type="MarginContainer" parent="."]
 anchor_left = 0.5

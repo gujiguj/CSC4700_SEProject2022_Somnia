@@ -5,9 +5,14 @@ extends Node
 # var a = 2
 # var b = "text"
 
+onready var Daytime = get_node("/root/Daytime")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Daytime.hide()
+#	OS.set_window_size(Vector2(1080,681))
+#	print("SET WINDOW SIZE FOR TUTORIAL")
+	#OS.window_size = Vector2(1080*.676,681*0.75)
 	$TutorialSong.play()
 	$HP.text = "Health: " + str($Player.player_health)
 	
@@ -19,8 +24,15 @@ func _ready():
 
 
 func _on_TutorialSong_finished():
-	get_tree().quit()
+#	OS.set_window_size(Vector2(1200,800))
+#	print("SET WINDOW SIZE FOR DAYTIME")
+	#OS.window_size = (Vector2(1200,800))
+	get_tree().change_scene("res://Daytime.tscn")
+	#Daytime.calc_energy_from_night($Player.player_health)
 
 
 func _on_Player_hit():
 	$HP.text = "Health: " + str($Player.player_health)
+	
+func get_player_health():
+	return $Player.player_health

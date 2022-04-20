@@ -60,7 +60,7 @@ func _on_Choice1_pressed():
 			emit_signal("passed_time", float(time_until_class) + 1.0)
 			emit_signal("lost_energy", 10) #idek
 	
-# Nap for 30 minutes
+# doodle
 func _on_Choice2_pressed():
 	hide_choices()
 	$Background.set_texture(load("res://backgrounds/hallbg.png"))

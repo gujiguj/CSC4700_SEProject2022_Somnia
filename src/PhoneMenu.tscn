@@ -49,10 +49,10 @@ border_color = Color( 0, 0, 0, 1 )
 border_blend = true
 
 [sub_resource type="DynamicFont" id=13]
-font_data = ExtResource( 10 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=14]
-font_data = ExtResource( 10 )
+font_data = ExtResource( 2 )
 
 [node name="PhoneMenu" type="Control"]
 script = ExtResource( 4 )
