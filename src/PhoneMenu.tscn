@@ -128,18 +128,18 @@ align = 1
 visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = 570.0
+margin_left = 547.0
 margin_top = -146.0
-margin_right = 940.0
+margin_right = 974.0
 margin_bottom = 183.0
 
 [node name="Panel" type="Panel" parent="Tasks"]
-margin_right = 370.0
+margin_right = 427.0
 margin_bottom = 329.0
 custom_styles/panel = SubResource( 9 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Tasks/Panel"]
-margin_right = 370.0
+margin_right = 423.0
 margin_bottom = 329.0
 custom_constants/margin_right = 15
 custom_constants/margin_top = 60
@@ -149,7 +149,7 @@ custom_constants/margin_bottom = 15
 [node name="TasksList" type="ItemList" parent="Tasks/Panel/MarginContainer"]
 margin_left = 40.0
 margin_top = 60.0
-margin_right = 355.0
+margin_right = 408.0
 margin_bottom = 314.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/vseparation = 5
@@ -159,9 +159,9 @@ custom_styles/bg = SubResource( 10 )
 max_columns = 2
 
 [node name="CloseTasksButton" type="Button" parent="Tasks/Panel"]
-margin_left = 314.0
+margin_left = 366.0
 margin_top = 15.0
-margin_right = 355.0
+margin_right = 407.0
 margin_bottom = 50.0
 custom_colors/font_color = Color( 0.831373, 0.341176, 0.341176, 1 )
 custom_fonts/font = SubResource( 15 )
