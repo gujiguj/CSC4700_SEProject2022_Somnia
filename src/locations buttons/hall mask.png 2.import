@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/hall mask.png-b14507d662412db1f5764843d9318bd6.res"
+
+[deps]
+
+source_file="res://locations buttons/hall mask.png"
+dest_files=[ "res://.import/hall mask.png-b14507d662412db1f5764843d9318bd6.res" ]
+
+[params]
+
+create_from=1
+threshold=0.5

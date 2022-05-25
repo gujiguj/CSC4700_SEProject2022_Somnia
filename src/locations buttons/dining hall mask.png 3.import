@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/dining hall mask.png-a2d611acba624985fa1031c89a5a50ec.res"
+
+[deps]
+
+source_file="res://game assets 2/dining hall mask.png"
+dest_files=[ "res://.import/dining hall mask.png-a2d611acba624985fa1031c89a5a50ec.res" ]
+
+[params]
+
+create_from=1
+threshold=0.5
