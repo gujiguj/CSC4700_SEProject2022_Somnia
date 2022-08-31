@@ -12,3 +12,5 @@ data_*/
 
 # Generic ignores
 *.DS_Store*
+.DS_Store
+src/.DS_Store
