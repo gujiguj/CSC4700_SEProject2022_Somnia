@@ -28,3 +28,6 @@ Download the Godot Game Engine [here](https://godotengine.org/download/linux#lin
 3. The **Tutorial Nighttime Rhythm Game** that runs at the start of the game is editable in `Tutorial.tscn` and `Tutorial.gd`.
 4. The **Daytime Visual Novel Section** that runs after the tutorial rhythm game is editable in `Daytime.tscn` and `Daytime.gd`. Associated scenes (e.g. Library, DiningHall, etc.) are all accessible this way.
 5. The **Nighttime Example Night Terror Rhythm Game** that runs after the Daytime is editable in `NightTerror.tscn` and `NightTerror.gd`.
+
+# Acknowledgements
+See [the wiki](https://github.com/gujiguj/CSC4700_SEProject2022_Somnia/wiki#credits) for full credits.
