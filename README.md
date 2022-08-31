@@ -1,7 +1,8 @@
 # Somnia: A College Life Simulator
 Repo for CSC 4700 Software Engineering Project Prototype of the game Somnia. Experience the wonders of time, energy, and sleep management during college life.
 
-## [Prototype Download (TBD)]
+## Prototype Download
+- [MacOS](https://github.com/gujiguj/CSC4700_SEProject2022_Somnia/blob/main/SEProject2022%20Somnia.dmg)
 
 ## Built With
 - [Godot Game Engine](https://godotengine.org/) and GDScript
